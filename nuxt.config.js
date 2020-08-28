@@ -35,6 +35,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '@/plugins/axios'
   ],
   /*
   ** Auto import components
@@ -56,12 +57,17 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    ['nuxt-gmaps', {
+      key:"AIzaSyAGbxpkHCHp3iNiwRWSTb_PmKo5H1qd62c"
+    }]
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL
+  },
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration

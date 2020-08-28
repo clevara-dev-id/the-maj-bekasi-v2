@@ -20,7 +20,7 @@ module.exports = {
       white: '#fff',
 
       gray: {
-        100: '#f7fafc',
+        100: '#e9e9e9',
         200: '#edf2f7',
         300: '#C8C8C8',
         400: '#cbd5e0',
@@ -273,6 +273,9 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
+      'heading' : '1.75rem',
+      'xxs' : '0.6875rem',
+      'button' : '0.8125rem',
     },
     fontWeight: {
       hairline: '100',
@@ -301,7 +304,8 @@ module.exports = {
       normal: '0',
       wide: '0.025em',
       wider: '0.05em',
-      widest: '0.1em',
+      // widest: '0.1em',
+      widest: '2px',
     },
     lineHeight: {
       none: '1',
