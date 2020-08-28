@@ -1,12 +1,14 @@
 <template>
-    <section v-show="isActive"
-             :aria-hidden="! isActive"
-             class="tabs-component-panel"
-             :id="computedId"
-             role="tabpanel"
+    <component
+        v-bind:is="tag"
+        v-show="isActive"
+        :aria-hidden="! isActive"
+        class="tabs-component-panel"
+        :id="computedId"
+        role="tabpanel"
     >
         <slot />
-    </section>
+    </component>
 </template>
 
 <script>
@@ -17,6 +19,7 @@
             prefix: { default: '' },
             suffix: { default: '' },
             isDisabled:{ default: false },
+            tag: { type: String, default: 'section' }
         },
 
         data: () => ({

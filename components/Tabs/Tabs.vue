@@ -1,10 +1,11 @@
 <template>
-    <div class="tabs-component">
-        <ul role="tablist" class="tabs-component-tabs">
-            <li
+    <div class="tabs-component flex-row">
+        <component v-bind:is="tagItems" role="tablist" class="tabs-component-tabs" :class="tabsClass">
+            <component
+                v-bind:is="tagItem"
                 v-for="(tab, i) in tabs"
                 :key="i"
-                :class="{ 'is-active': tab.isActive, 'is-disabled': tab.isDisabled }"
+                :class="[{ 'is-active': tab.isActive, 'is-disabled': tab.isDisabled }, tabClass]"
                 class="tabs-component-tab"
                 role="presentation"
                 v-show="tab.isVisible"
@@ -17,9 +18,9 @@
                    class="tabs-component-tab-a"
                    role="tab"
                 ></a>
-            </li>
-        </ul>
-        <div class="tabs-component-panels">
+            </component>
+        </component>
+        <div class="tabs-component-panels" :class="panelsClass">
             <slot/>
         </div>
     </div>
@@ -30,6 +31,11 @@
 
     export default {
         props: {
+            tagItems: { type: String, default: 'ul' },
+            tagItem: { type: String, default: 'li' },
+            tabsClass: { type: String, default: '' },
+            tabClass: { type: String, default: '' },
+            panelsClass: { type: String, default: '' },
             cacheLifetime: {
                 default: 5,
             },
