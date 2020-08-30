@@ -1,38 +1,40 @@
 <template>
-  <div class="bg-indigo-500 py-16 mt-24 lg:mt-48 galeri">
-    <div class="xs:container sm:container md:container lg:max-w-full mx-auto px-8">
-      <h1 class="text-heading capitalize text-white font-bold text-center mb-12">Galeri</h1>
-      <VueSlickCarousel ref="galericarousel" v-bind="settings" @afterChange="handleSwipe">
-        <div v-for="(gallery, index) in dataGalleries" :key="index" class="focus:outline-none lg:px-4">
-          <img
-            class="w-full"
-            :src="$store.state.storage_url+gallery.gambar"
-            :alt="gallery.nama"
-          />
-        </div>
-      </VueSlickCarousel>
-      <div
-        v-for="(gallery, index) in dataGalleries"
-        :key="index"
-        :class="{active: activeClass === index}"
-        class="text-center w-full lg:w-1/4 mx-auto text-white mt-12 justify-between items-center not-active"
-      >
-        <button
-          @click="prevClick"
-          class="focus:outline-none hidden lg:block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500"
+  <div id="galeri" class="pt-24 lg:pt-32 lg:mt-12">
+    <div class="bg-indigo-500 py-16 galeri">
+      <div class="xs:container sm:container md:container lg:max-w-full mx-auto px-8">
+        <h1 class="text-heading capitalize text-white font-bold text-center mb-12">Galeri</h1>
+        <VueSlickCarousel ref="galericarousel" v-bind="settings" @afterChange="handleSwipe">
+          <div
+            v-for="(gallery, index) in dataGalleries"
+            :key="index"
+            class="focus:outline-none lg:px-4"
+          >
+            <img class="w-full" :src="$store.state.storage_url+gallery.gambar" :alt="gallery.nama" />
+          </div>
+        </VueSlickCarousel>
+        <div
+          v-for="(gallery, index) in dataGalleries"
+          :key="index"
+          :class="{active: activeClass === index}"
+          class="text-center w-full lg:w-1/4 mx-auto text-white mt-12 justify-between items-center not-active"
         >
-          <img class="mx-auto" src="/gallery/chevron-down.svg" alt="icon left" />
-        </button>
-        <div class="mx-auto">
-          <h5 class="text-base">{{gallery.nama}} - {{gallery.unit ? gallery.unit.unit_name : ''}}</h5>
-          <h6 class="text-sm mt-6">{{index+1}} / {{dataGalleries.length}}</h6>
+          <button
+            @click="prevClick"
+            class="focus:outline-none hidden lg:block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500"
+          >
+            <img class="mx-auto" src="/gallery/chevron-down.svg" alt="icon left" />
+          </button>
+          <div class="mx-auto">
+            <h5 class="text-base">{{gallery.nama}} - {{gallery.unit ? gallery.unit.unit_name : ''}}</h5>
+            <h6 class="text-sm mt-6">{{index+1}} / {{dataGalleries.length}}</h6>
+          </div>
+          <button
+            @click="nextClick"
+            class="focus:outline-none hidden lg:block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 transform rotate-180"
+          >
+            <img class="mx-auto" src="/gallery/chevron-down.svg" alt="icon left" />
+          </button>
         </div>
-        <button
-          @click="nextClick"
-          class="focus:outline-none hidden lg:block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 transform rotate-180"
-        >
-          <img class="mx-auto" src="/gallery/chevron-down.svg" alt="icon left" />
-        </button>
       </div>
     </div>
   </div>
@@ -44,8 +46,8 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "GalleryComponent",
-	components: { VueSlickCarousel },
-	props:['dataGalleries'],
+  components: { VueSlickCarousel },
+  props: ["dataGalleries"],
   methods: {
     handleSwipe(event, slick, direction) {
       this.activeClass = event;

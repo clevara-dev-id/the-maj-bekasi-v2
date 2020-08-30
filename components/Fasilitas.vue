@@ -1,12 +1,12 @@
 <template>
-    <div class="container mx-auto px-8 lg:px-16 mt-24 lg:mt-48">
+    <div id="fasilitas" class="container mx-auto px-8 lg:px-16 pt-24 lg:pt-40">
         <Heading class="w-full lg:w-1/3" data-title="Fasilitas" data-caption="Untuk work-life balance yang lebih baik" />
         <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mt-12">
-            <div v-for="facility in facilities.slice(0, itemShow)" :key="facility.id" class="flex mb-4 py-2 lg:hidden">
+            <div v-for="(facility, index) in facilities.slice(0, itemShow)" :key="index" class="flex mb-4 py-2 lg:hidden">
                 <img :src="facility.image" :alt="facility.caption" class="w-8 h-8">
                 <h6 class="text-xxs items-center px-2 lg:p-2 font-bold uppercase ml-2 w-24 lg:w-32">{{facility.caption}}</h6>
             </div>
-            <div v-for="facility in facilities" :key="facility.id" class="flex mb-4 py-2 hidden lg:flex">
+            <div v-for="(facility, index) in facilities" :key="index" class="flex mb-4 py-2 hidden lg:flex">
                 <img :src="facility.image" :alt="facility.caption" class="w-8 h-8">
                 <h6 class="text-xxs items-center px-2 lg:p-2 font-bold uppercase ml-2 w-24 lg:w-32">{{facility.caption}}</h6>
             </div>

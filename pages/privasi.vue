@@ -8,6 +8,18 @@
 </template>
 <script>
 export default {
+	head() {
+    return {
+      title: "The MAJ Residences Bekasi - privacy policy",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "The MAJ Residences Bekasi.",
+        },
+      ],
+    };
+  },
   async asyncData({ $axios }) {
 		let a = await $axios.get('/privacy-policy').then((res) => { return res.data})
 		return {privacy:a}

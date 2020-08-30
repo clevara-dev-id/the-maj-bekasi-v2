@@ -15,21 +15,21 @@
 
       <div class="lg:container mx-auto xl:px-16 flex">
         <div class="flex items-center flex-shrink-0 text-white mx-auto">
-          <img class="w-24 lg:w-32 lg:mx-16" src="~/assets/the-maj-bekasi-logo.svg" alt="the maj bekasi" />
+          <nuxt-link to="/"><img class="w-24 lg:w-32 lg:mx-16" src="~/assets/the-maj-bekasi-logo.svg" alt="the maj bekasi" /></nuxt-link>
         </div>
         <div class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
           <div class="ml-auto">
             <nuxt-link
               v-for="menu in menus"
               :key="menu.id"
-              class="text-xxs uppercase font-bold lg:inline-block lg:mt-0 mr-8 transition-all duration-300"
+              class="text-xxs uppercase font-bold lg:inline-block lg:mt-0 mr-8 transition-all duration-300 gilroy-bold"
               :class="isTop"
               :to="menu.link"
             >{{menu.name}}</nuxt-link>
             <div class="lg:inline-block lg:mt-0 mr-8">
               <button
                 @click="isOpen = !isOpen"
-                class="text-xxs flex uppercase font-bold focus:outline-none"
+                class="text-xxs flex uppercase font-bold focus:outline-none gilroy-bold"
               >
                 Visi
                 <svg
@@ -56,11 +56,11 @@
               <div v-if="isOpen" class="absolute w-32 bg-white mt-2 shadow-xl rounded-sm py-2 z-50">
                 <nuxt-link
                   to="/tentang-kami"
-                  class="block py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200"
+                  class="block py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
                 >Visi</nuxt-link>
                 <nuxt-link
                   to="/expertise"
-                  class="block py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200"
+                  class="block py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
                 >Expertise</nuxt-link>
               </div>
             </div>

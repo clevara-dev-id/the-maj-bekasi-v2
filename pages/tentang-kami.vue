@@ -41,6 +41,18 @@
 </template>
 <script>
 export default {
+  head() {
+    return {
+      title: "The MAJ Residences Bekasi - Tentang The MAJ Residences Bekasi",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: `The MAJ Residences Bekasi. ${this.abouts[0].tentang_kami}`,
+        },
+      ],
+    };
+  },
   async asyncData({ $axios }) {
     let a = await $axios.get("/about-bekasi").then(res => {return res.data});
     let b = await $axios.get("/partnership").then(res => {return res.data});
