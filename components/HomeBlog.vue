@@ -1,9 +1,9 @@
 <template>
-  <div class="container mx-auto px-8 lg:px-16 mt-16 lg:mt-48">
+  <div class="container mx-auto px-8 lg:px-16 pt-16 lg:pt-48">
     <h1 class="text-heading font-bold text-indigo-500 capitalize text-center mb-16">update terbaru</h1>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-4">
       <div v-for="blog in dataBlogs.slice(0,3)" :key="blog.id">
-        <nuxt-link :to="`/blog/${blog.id}`">
+        <nuxt-link :to="`/blog/${blog.heading.replace(/\+s/, '-')}`">
           <div
             class="w-full h-post-thumbnail"
             :style="`background:url(${$store.state.storage_url+blog.image}) center center / cover no-repeat;`"
@@ -15,7 +15,7 @@
         </nuxt-link>
       </div>
     </div>
-		<div class="mt-16 text-center">
+		<div class="my-16 text-center">
 			<nuxt-link class="bg-orange-500 px-8 py-4 text-sm text-white uppercase verlag tracking-widest mx-auto text-center" to="/blog">selengkapnya</nuxt-link>
 		</div>
   </div>

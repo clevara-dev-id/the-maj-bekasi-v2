@@ -7,7 +7,7 @@
         data-caption="Hunian Flexibel Untuk Generasi 'Zaman Now'"
       />
     </div>
-    <div class="mx-auto container px-8 lg:px-16 mt-24">
+    <div class="mx-auto container px-8 lg:px-16 mt-24 hidden lg:block">
       <t-tabs
         tag-items="div"
         tag-item="div"
@@ -68,8 +68,8 @@
                 </t-tab>
 
                 <!-- <t-tab name="360° view"> -->
-                  <!-- galeri -->
-                  <!-- <iframe class="w-full" height="480px" src="" frameBorder="0"></iframe> -->
+                <!-- galeri -->
+                <!-- <iframe class="w-full" height="480px" src="" frameBorder="0"></iframe> -->
                 <!-- </t-tab> -->
 
                 <!-- siimulasi -->
@@ -82,26 +82,139 @@
         </template>
       </t-tabs>
     </div>
+    <div class="block lg:hidden container mx-auto px-8 mt-24 bg-gray-100 pt-8">
+      <h6
+        class="verlag text-center text-xxs text-black font-bold tracking-wider uppercase my-4"
+      >pilih unit</h6>
+      <div class="text-center py-2">
+        <select
+          v-model="activeIndex"
+          ref="changeUnit"
+          class="gilroy-bold text-lg w-2/5 mx-auto text-black uppercase bg-gray-100 focus:outline-none"
+        >
+          <option v-for="(s, i) in dataUnits" :key="s.id" :value="i">{{s.unit_name}}</option>
+        </select>
+      </div>
+    </div>
+    <div
+      v-for="(dd, index) in dataUnits"
+      :key="dd.id"
+      :class="{active:activeIndex === index}"
+      class="hidden lg:hidden container mx-auto px-8 bg-gray-100 pb-8"
+    >
+      <div v-if="activeIndex === index" class="pb-8">
+        <h6
+          class="verlag text-center text-xxs text-black tracking-wider uppercase"
+        >{{(dd.specs ? dd.specs.luas : '')}}</h6>
+        <div class="w-full py-4">
+          <VueSlickCarousel :ref="`denah${dd.id}`" v-bind="settings">
+            <div>
+              <img
+                class="focus:outline-none text-center mx-auto w-1/2"
+                :src="$store.state.storage_url+(dd.specs? dd.specs.denah_ruang : '')"
+                :alt="(dd.specs ? dd.unit_name : '')"
+              />
+            </div>
+            <div>
+              <img
+                class="focus:outline-none text-center mx-auto w-1/2"
+                :src="$store.state.storage_url+(dd.specs? dd.specs.denah_bangunan : '')"
+                :alt="(dd.specs ? dd.unit_name : '')"
+              />
+            </div>
+          </VueSlickCarousel>
+        </div>
+        <div class="spesification mt-8">
+          <h6
+            class="text-xxs gilroy-bold tracking-wider uppercase text-indigo-500 font-bold"
+          >spesifikasi :</h6>
+          <ul class="mt-4 list-disc">
+            <li
+              class="proxima-nova text-xxs tracking-wider my-2"
+              v-for="room in dd.room_list"
+              :key="room.id"
+            >{{room.name}}</li>
+          </ul>
+        </div>
+        <div class="review-unit my-16">
+          <h5
+            class="text-base font-bold text-indigo-500 uppercase tracking-wider gilroy-bold text-center my-2"
+          >review unit</h5>
+          <VueSlickCarousel v-bind="settingsOne" ref="c2" :asNavFor="($refs.c1 ? $refs.c1[0] : '')">
+            <div v-for="gl in dd.gallery" :key="gl.id">
+              <img
+                class="focus:outline-none w-full"
+                :src="$store.state.storage_url+gl.gambar"
+                :alt="gl.nama"
+              />
+              <h5
+                class="text-center uppercase my-3 font-bold proxima-nova text-base text-indigo-500"
+              >{{gl.nama}}</h5>
+            </div>
+          </VueSlickCarousel>
+          <VueSlickCarousel v-bind="settingsTwo" ref="c1" :asNavFor="($refs.c2 ? $refs.c2[0] : '')">
+            <div v-for="(g, index) in dd.gallery" :key="index" class="focus:outline-none px-2">
+              <img
+                class="focus:outline-none w-full"
+                :src="$store.state.storage_url+g.gambar"
+                :alt="g.nama"
+              />
+            </div>
+          </VueSlickCarousel>
+        </div>
+        <MobileSimulasi :data-simulations="dd.unit_price" :data-name="dd.unit_name" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import axios from "@nuxtjs/axios";
+// import axios from "@nuxtjs/axios";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 const baseUrlImg = "https://backend.themajbekasi.com/storage/";
 const components = {
   tTabs: () => import("@/components/Tabs/Tabs.vue"),
   tTab: () => import("@/components/Tabs/Tab.vue"),
 };
 export default {
-  components,
+  name: "TabDenahUnitComponent",
+  components: { VueSlickCarousel },
   props: {
     dataUnits: { type: Array, default: null },
   },
   data() {
     return {
       base_img: baseUrlImg,
+      activeIndex: 0,
+      settings: {
+        dots: true,
+        arrows: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+      settingsOne: {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        focusOnSelect: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+      settingsTwo: {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        focusOnSelect: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
     };
   },
-
   methods: {
     toPrice(ctx) {
       const context = new Intl.NumberFormat("ID", {
@@ -118,13 +231,23 @@ $activeColor: #232323;
 $activeBg: #e9e9e9;
 $inActiveColor: #c4c9d2;
 $inActiveBg: #fbf7f6;
+.active {
+  display: block !important;
+}
+.spesification {
+  ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+}
 
 ::v-deep .tabs-component-tab {
   padding: 0.5rem 1rem !important;
 }
 ::v-deep .deep-2 {
-  .is-active{
-    .tabs-component-tab-a::after{
+  .is-active {
+    .tabs-component-tab-a::after {
       content: "";
       position: relative;
       bottom: 0;
@@ -138,7 +261,7 @@ $inActiveBg: #fbf7f6;
       z-index: 1;
     }
   }
-  .border-bottom::after{
+  .border-bottom::after {
     content: "";
     position: relative;
     bottom: 0;
@@ -148,9 +271,9 @@ $inActiveBg: #fbf7f6;
     opacity: 0.5;
     display: block;
     height: 0.5rem;
-    width: calc(100%/2);
+    width: calc(100% / 2);
     border-radius: 500px;
-    margin-top: -.5rem;
+    margin-top: -0.5rem;
   }
 }
 
