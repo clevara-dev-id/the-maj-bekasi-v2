@@ -2,7 +2,7 @@
   <div>
     <Hero :data-heroes="heroes" />
     <Fasilitas />
-    <!-- <TipeUnit /> -->
+    <TipeUnit />
     <!-- <Lokasi :data-locations="locations" /> -->
     <Galeri :data-galleries="galleries" />
     <Visi :data-abouts="abouts" />
@@ -13,6 +13,9 @@
   </div>
 </template>
 <script>
+const components = {
+  TipeUnit: () => import('@/components/Tabs/example.vue')
+}
 export default {
   head() {
     return {
@@ -26,7 +29,7 @@ export default {
       ],
     };
   },
-  // components,
+  components,
   async asyncData({ $axios }) {
     let a = await $axios.get("/head-slider").then((res) => {
       return res.data;
