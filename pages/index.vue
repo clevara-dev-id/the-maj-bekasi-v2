@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Hero :data-heroes="heroes" />
-    <Fasilitas />
-    <!-- <TipeUnit /> -->
+    <!-- <Hero :data-heroes="heroes" /> -->
+    <!-- <Fasilitas /> -->
+    <TipeUnit :data-units="units" />
     <!-- <Lokasi :data-locations="locations" /> -->
-    <Galeri :data-galleries="galleries" />
-    <Visi :data-abouts="abouts" />
-    <Partner :data-partners="partners" />
-    <HomeBlog :data-blogs="blogs" />
+    <!-- <Galeri :data-galleries="galleries" /> -->
+    <!-- <Visi :data-abouts="abouts" /> -->
+    <!-- <Partner :data-partners="partners" /> -->
+    <!-- <HomeBlog :data-blogs="blogs" /> -->
     <!-- <TurVirtual /> -->
-    <HubungiKami />
+    <!-- <HubungiKami /> -->
   </div>
 </template>
 <script>
@@ -46,6 +46,9 @@ export default {
     let f = await $axios.get("/blog-bekasi").then((res) => {
       return res.data;
     });
+    let g = await $axios.get("/units").then((res) => {
+      return res.data;
+    });
 
     return {
       heroes: a,
@@ -54,6 +57,7 @@ export default {
       abouts: d,
       partners: e,
       blogs: f,
+      units: g,
     };
   },
 };

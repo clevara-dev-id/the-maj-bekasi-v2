@@ -22,7 +22,7 @@
             <nuxt-link
               v-for="menu in menus"
               :key="menu.id"
-              class="text-xxs uppercase font-bold lg:inline-block lg:mt-0 mr-8 transition-all duration-300 gilroy-bold"
+              class="text-xxs uppercase font-bold tracking-widest lg:inline-block lg:mt-0 mr-8 transition-all duration-300 gilroy-bold"
               :class="isTop"
               :to="menu.link"
             >{{menu.name}}</nuxt-link>
