@@ -220,7 +220,7 @@ export default {
         this.note = true;
 			}
 			if (this.title === true && this.name === true && this.purpose === true && this.phone === true && this.email === true && this.note === true) {
-				this.$axios.$post('http://localhost:8000/contacts', data).then(() => {
+				this.$axios.$post('/contacts', data).then(() => {
 					this.isOpen = true
 				}).catch((err) => {
 					this.error = err.data

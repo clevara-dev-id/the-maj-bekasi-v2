@@ -29,6 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
+    { src: '~assets/fonts/font.css' }
   ],
   /*
   ** Plugins to load before mounting the App
@@ -61,7 +62,7 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     ['nuxt-gmaps', {
-      key:"AIzaSyAGbxpkHCHp3iNiwRWSTb_PmKo5H1qd62c"
+      key:process.env.MAP_API
     }]
   ],
   /*

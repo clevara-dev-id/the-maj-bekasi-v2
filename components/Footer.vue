@@ -145,7 +145,7 @@ export default {
         this.email = true;
       }
 			if (this.title === true && this.name === true && this.email === true) {
-				this.$axios.$post('http://localhost:8000/subscribe', data).then(() => {
+				this.$axios.$post('/subscribe', data).then(() => {
 					this.isOpen = true
 				}).catch((err) => {
 					this.error = err.data
