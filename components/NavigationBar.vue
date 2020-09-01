@@ -181,7 +181,7 @@ export default {
 	},
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .w-contact-us {
   width: 180px;
 }

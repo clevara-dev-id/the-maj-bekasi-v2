@@ -85,7 +85,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .bg-v-tour {
   background-color: #e8e8e8;
 }

@@ -52,7 +52,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .map-border-bottom::after {
   content: "";
   position: relative;

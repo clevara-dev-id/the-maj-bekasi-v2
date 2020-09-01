@@ -49,7 +49,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .grayscale {
   filter: grayscale(1);
   opacity: 0.3;

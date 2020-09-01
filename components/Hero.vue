@@ -101,7 +101,7 @@ export default {
     },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .mt-content{
         margin-top: -5.5rem;
     }

@@ -25,7 +25,7 @@ export default {
   props: ['dataBlogs'],
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .h-post-thumbnail {
   height: 350px;
 }

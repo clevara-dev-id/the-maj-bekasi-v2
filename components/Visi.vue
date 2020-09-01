@@ -28,7 +28,7 @@ export default {
   props: ['dataAbouts'],
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .line-clamp {
   display: -webkit-box;
   text-overflow: ellipsis;
