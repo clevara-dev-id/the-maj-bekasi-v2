@@ -99,7 +99,7 @@
     <div
       v-for="(dd, index) in dataUnits"
       :key="dd.id"
-      :class="{active:activeIndex === index}"
+      :class="{'active-index':activeIndex === index}"
       class="hidden lg:hidden container mx-auto px-8 bg-gray-100 pb-8"
     >
       <div v-if="activeIndex === index" class="pb-8">
@@ -171,16 +171,18 @@
 // import axios from "@nuxtjs/axios";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import tTabs from "@/components/Tabs/Tabs.vue"
+import tTab from "@/components/Tabs/Tab.vue"
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 const baseUrlImg = "https://backend.themajbekasi.com/storage/";
-const components = {
-  tTabs: () => import("@/components/Tabs/Tabs.vue"),
-  tTab: () => import("@/components/Tabs/Tab.vue"),
-};
 export default {
   name: "TabDenahUnitComponent",
-  components: { VueSlickCarousel },
+  components: { 
+    VueSlickCarousel,
+    tTabs,
+    tTab
+  },
   props: {
     dataUnits: { type: Array, default: null },
   },
@@ -231,8 +233,13 @@ $activeColor: #232323;
 $activeBg: #e9e9e9;
 $inActiveColor: #c4c9d2;
 $inActiveBg: #fbf7f6;
-.active {
+.active-index {
   display: block !important;
+}
+@media screen and (min-width: 1024px) {
+  .active-index {
+    display: none !important;
+  } 
 }
 .spesification {
   ul {
