@@ -38,7 +38,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '@/plugins/axios'
+    '@/plugins/axios',
+    { src: '@/plugins/vue-slick-carousel.js', mode: 'client' }
   ],
   /*
   ** Auto import components
@@ -72,7 +73,12 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: process.env.API_URL
+    baseURL: process.env.API_URL,
+    proxy: true
+  },
+
+  proxy: {
+    '/api/': 'https://backend.themajbekasi.com',
   },
   /*
   ** Content module configuration
