@@ -30,7 +30,9 @@ export default {
   */
   css: [
     { src: '~assets/css/tailwind.css' },
-    { src: '~assets/fonts/font.css' }
+    { src: '~assets/fonts/font.css' },
+    { src: 'vue-slick-carousel/dist/vue-slick-carousel.css' },
+    { src: 'vue-slick-carousel/dist/vue-slick-carousel-theme.css' }
   ],
 
   purgeCSS: {
