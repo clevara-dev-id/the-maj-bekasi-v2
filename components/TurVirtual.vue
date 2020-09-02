@@ -1,6 +1,6 @@
 <template>
   <div class="bg-v-tour">
-    <div id="tur-virtual" class="container mx-auto px-8 lg:px-16 pt-16 py-8 lg:pt-48">
+    <div id="tur-virtual" class="container mx-auto px-8 lg:px-16 pt-16 py-8 lg:mt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="h-v-tour">
@@ -8,7 +8,7 @@
           <div class="flex items-center justify-center">
             <button
               @click="prevClick"
-              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500"
+              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 lg:hidden"
             >
               <img class="mx-auto" src="/vtour/chevron-down.svg" alt="icon left" />
             </button>
@@ -18,7 +18,7 @@
             </div>
             <button
               @click="nextClick"
-              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 transform rotate-180"
+              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 transform rotate-180 lg:hidden"
             >
               <img class="mx-auto" src="/vtour/chevron-down.svg" alt="icon left" />
             </button>

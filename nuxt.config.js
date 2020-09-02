@@ -29,7 +29,15 @@ export default {
   ** Global CSS
   */
   css: [
-    { src: '~assets/fonts/font.css' }
+    { 
+      src: '~assets/fonts/font.css',
+    },
+    {
+      src: "vue-slick-carousel/dist/vue-slick-carousel.css",
+    },
+    {
+      src: "vue-slick-carousel/dist/vue-slick-carousel-theme.css"
+    }
   ],
   /*
   ** Plugins to load before mounting the App

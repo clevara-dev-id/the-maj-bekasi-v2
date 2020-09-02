@@ -170,11 +170,11 @@
 <script>
 // import axios from "@nuxtjs/axios";
 import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import tTabs from "@/components/Tabs/Tabs.vue"
 import tTab from "@/components/Tabs/Tab.vue"
 // optional style for arrows & dots
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+// import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 const baseUrlImg = "https://backend.themajbekasi.com/storage/";
 export default {
   name: "TabDenahUnitComponent",
