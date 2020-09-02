@@ -29,7 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
-    { src: '~assets/tailwind.css' },
+    { src: '~assets/css/tailwind.css' },
     { src: '~assets/fonts/font.css' }
   ],
 
