@@ -96,30 +96,26 @@
         </select>
       </div>
     </div>
-    <div
-      v-for="(dd, index) in dataUnits"
-      :key="dd.id"
-      :class="{'active-index':activeIndex === index}"
-      class="hidden lg:hidden container mx-auto px-8 bg-gray-100 pb-8"
-    >
-      <div v-if="activeIndex === index" class="pb-8">
+
+    <div class="active-index hidden lg:hidden container mx-auto px-8 bg-gray-100 pb-8">
+      <div class="pb-8">
         <h6
           class="verlag text-center text-xxs text-black tracking-wider uppercase"
-        >{{(dd.specs ? dd.specs.luas : '')}}</h6>
+        >{{(activeData.specs ? activeData.specs.luas : '')}}</h6>
         <div class="w-full py-4">
-          <VueSlickCarousel :ref="`denah${dd.id}`" v-bind="settings">
+          <VueSlickCarousel :ref="`denah${activeData.id}`" v-bind="settings">
             <div>
               <img
                 class="focus:outline-none text-center mx-auto w-1/2"
-                :src="$store.state.storage_url+(dd.specs? dd.specs.denah_ruang : '')"
-                :alt="(dd.specs ? dd.unit_name : '')"
+                :src="$store.state.storage_url+(activeData.specs? activeData.specs.denah_ruang : '')"
+                :alt="(activeData.specs ? activeData.unit_name : '')"
               />
             </div>
             <div>
               <img
                 class="focus:outline-none text-center mx-auto w-1/2"
-                :src="$store.state.storage_url+(dd.specs? dd.specs.denah_bangunan : '')"
-                :alt="(dd.specs ? dd.unit_name : '')"
+                :src="$store.state.storage_url+(activeData.specs? activeData.specs.denah_bangunan : '')"
+                :alt="(activeData.specs ? activeData.unit_name : '')"
               />
             </div>
           </VueSlickCarousel>
@@ -131,7 +127,7 @@
           <ul class="mt-4 list-disc">
             <li
               class="proxima-nova text-xxs tracking-wider my-2"
-              v-for="room in dd.room_list"
+              v-for="room in activeData.room_list"
               :key="room.id"
             >{{room.name}}</li>
           </ul>
@@ -140,8 +136,8 @@
           <h5
             class="text-base font-bold text-indigo-500 uppercase tracking-wider gilroy-bold text-center my-2"
           >review unit</h5>
-          <VueSlickCarousel v-bind="settingsOne" ref="c2" :asNavFor="($refs.c1 ? $refs.c1[0] : '')">
-            <div v-for="gl in dd.gallery" :key="gl.id">
+          <VueSlickCarousel v-bind="settingsOne" ref="c2">
+            <div v-for="gl in activeData.gallery" :key="gl.id">
               <img
                 class="focus:outline-none w-full"
                 :src="$store.state.storage_url+gl.gambar"
@@ -152,8 +148,8 @@
               >{{gl.nama}}</h5>
             </div>
           </VueSlickCarousel>
-          <VueSlickCarousel v-bind="settingsTwo" ref="c1" :asNavFor="($refs.c2 ? $refs.c2[0] : '')">
-            <div v-for="(g, index) in dd.gallery" :key="index" class="focus:outline-none px-2">
+          <VueSlickCarousel v-bind="settingsTwo" ref="c1">
+            <div v-for="(g, index) in activeData.gallery" :key="index" class="focus:outline-none px-2">
               <img
                 class="focus:outline-none w-full"
                 :src="$store.state.storage_url+g.gambar"
@@ -162,7 +158,7 @@
             </div>
           </VueSlickCarousel>
         </div>
-        <MobileSimulasi :data-simulations="dd.unit_price" :data-name="dd.unit_name" />
+        <MobileSimulasi :data-simulations="activeData.unit_price" :data-name="activeData.unit_name" />
       </div>
     </div>
   </div>
@@ -178,7 +174,7 @@ import tTab from "@/components/Tabs/Tab.vue"
 const baseUrlImg = "https://backend.themajbekasi.com/storage/";
 export default {
   name: "TabDenahUnitComponent",
-  components: { 
+  components: {
     VueSlickCarousel,
     tTabs,
     tTab
@@ -189,6 +185,7 @@ export default {
   data() {
     return {
       base_img: baseUrlImg,
+      activeData: this.dataUnits[0],
       activeIndex: 0,
       settings: {
         dots: true,
@@ -217,15 +214,21 @@ export default {
       },
     };
   },
-  methods: {
-    toPrice(ctx) {
-      const context = new Intl.NumberFormat("ID", {
-        style: "currency",
-        currency: "IDR",
-      });
-      return context.format(ctx);
-    },
+  mounted () {
+    this.$nextTick(() => {
+      const c1 = this.$refs.c1
+      const c2 = this.$refs.c2
+      c1.asNavFor = c2
+      c2.asNavFor = c1
+    })
   },
+  watch: {
+    activeIndex (n, o) {
+      if (n !== o) {
+        this.activeData = this.dataUnits[n]
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
