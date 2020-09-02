@@ -5,10 +5,10 @@
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="h-v-tour">
           <iframe :src="tour.link" width="100%" height="480px" frameborder="0"></iframe>
-          <div class="flex items-center justify-center">
+          <div class="flex items-center justify-between lg:w-1/3 lg:mx-auto">
             <button
               @click="prevClick"
-              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 lg:hidden"
+              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500"
             >
               <img class="mx-auto" src="/vtour/chevron-down.svg" alt="icon left" />
             </button>
@@ -18,7 +18,7 @@
             </div>
             <button
               @click="nextClick"
-              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 transform rotate-180 lg:hidden"
+              class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500 transform rotate-180"
             >
               <img class="mx-auto" src="/vtour/chevron-down.svg" alt="icon left" />
             </button>

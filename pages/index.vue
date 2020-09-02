@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Hero :data-heroes="heroes" /> -->
+    <Hero :data-heroes="heroes" />
     <!-- <Fasilitas /> -->
     <!-- <TipeUnit :data-units="units" /> -->
     <!-- <Lokasi :data-locations="locations" /> -->
@@ -9,7 +9,7 @@
     <!-- <Partner :data-partners="partners" /> -->
     <!-- <HomeBlog :data-blogs="blogs" /> -->
     <TurVirtual />
-    <!-- <HubungiKami /> -->
+    <HubungiKami />
   </div>
 </template>
 <script>
