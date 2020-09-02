@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <VueSlickCarousel ref="c2" :asNavFor="$refs.c1" v-bind="settings">
+    <VueSlickCarousel ref="c2" v-bind="settings">
       <div v-for="(g, index) in dataGaleries" :key="index" class="focus:outline-none px-2">
         <div class="grid grid-cols-6 gap-16">
           <div class="col-span-4">
@@ -14,7 +14,7 @@
     </VueSlickCarousel>
     <div class="relative">
       <div class="w-2/3 absolute -mt-48 right-0">
-        <VueSlickCarousel ref="c1" :asNavFor="$refs.c2" v-bind="settingsTwo">
+        <VueSlickCarousel ref="c1" v-bind="settingsTwo">
           <div v-for="(g, index) in dataGaleries" :key="index" class="focus:outline-none px-2">
             <img class="focus:outline-none w-full" :src="$store.state.storage_url+g.gambar" :alt="g.nama" />
           </div>
@@ -56,6 +56,14 @@ export default {
       },
     };
   },
+  mounted () {
+    this.$nextTick(() => {
+      const c1 = this.$refs.c1
+      const c2 = this.$refs.c2
+      c1.asNavFor = c2
+      c2.asNavFor = c1
+    })
+  }
 };
 </script>
 <style lang="scss">
