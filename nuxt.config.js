@@ -29,8 +29,18 @@ export default {
   ** Global CSS
   */
   css: [
+    { src: '~assets/tailwind.css' },
     { src: '~assets/fonts/font.css' }
   ],
+
+  purgeCSS: {
+    whitelistPatterns: [
+      /-(leave|enter|appear)(|-(to|from|active))$/,
+      /^(?!(|.*?:)cursor-move).+-move$/,
+      /^nuxt-link(|-exact)-active$/,
+      /multiselect/
+    ]
+  },
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
