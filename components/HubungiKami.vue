@@ -1,6 +1,6 @@
 <template>
   <div>
-		<div v-if="isOpen" class="w-full h-full bg-gray-200 bg-opacity-50 fixed z-50">
+		<div v-if="isOpen" class="w-full h-full bg-gray-200 bg-opacity-50 fixed inset-0 z-50">
 			<div class="w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
 				<div class="text-center relative">
 					<button class="absolute right-0 top-0" @click="show">
