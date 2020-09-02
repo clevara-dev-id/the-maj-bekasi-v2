@@ -58,10 +58,9 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      const c1 = this.$refs.c1
-      const c2 = this.$refs.c2
-      c1.asNavFor = c2
-      c2.asNavFor = c1
+      if (this.$refs.c1 && this.$refs.c2) return
+      this.$refs.c1 = c2
+      this.$refs.c2 = c1
     })
   }
 };
