@@ -3,8 +3,10 @@
     <div id="tur-virtual" class="container mx-auto px-8 lg:px-16 pt-16 py-8 lg:mt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
-        <div v-for="(tour, index) in vtours" :key="tour.id" class="h-v-tour">
-          <iframe :src="tour.link" width="100%" height="480px" frameborder="0"></iframe>
+        <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full">
+          <a class="w-full" :href="tour.link" target="_blank" rel="noopener noreferrer">
+            <img class="w-full" :src="tour.image" :alt="tour.name">
+          </a>
           <div class="flex items-center justify-between lg:w-1/3 lg:mx-auto">
             <button
               @click="prevClick"
@@ -50,33 +52,36 @@ export default {
           id: 1,
           name: "Studio A & B",
           link: "https://my.matterport.com/show/?m=QkKWVhwxX8V&brand=0",
+          image: "/vtour/studio-a-b.png",
         },
         {
           id: 2,
           name: "Studio 2 Bedroom",
           link: "https://my.matterport.com/show/?m=8Hq58emEwf6",
+          image: "/vtour/studio-2-br.png",
         },
         {
           id: 3,
           name: "Lobby R 02",
           link: "https://poly.google.com/view/3I5SHJ3nUJ0/embed?chrome=min",
+          image: "/vtour/lobby.png",
         },
         {
           id: 4,
           name: "Pool",
           link: "https://poly.google.com/view/eqDVNcBA-tr/embed?chrome=min",
+          image: "/vtour/pool.png",
         },
         {
           id: 5,
           name: "Sky Garden",
           link: "https://poly.google.com/view/5vqSNgUTff5/embed?chrome=min",
+          image: "/vtour/sky-garden.png",
         },
       ],
       settings: {
         dots: false,
         arrows: false,
-        infinite: true,
-        focusOnSelect: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
