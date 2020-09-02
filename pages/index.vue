@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Hero :data-heroes="heroes" />
-    <Fasilitas />
-    <TipeUnit :data-units="units" />
-    <Lokasi :data-locations="locations" />
-    <Galeri :data-galleries="galleries" />
-    <Visi :data-abouts="abouts" />
-    <Partner :data-partners="partners" />
-    <HomeBlog :data-blogs="blogs" />
+    <!-- <Hero :data-heroes="heroes" /> -->
+    <!-- <Fasilitas /> -->
+    <!-- <TipeUnit :data-units="units" /> -->
+    <!-- <Lokasi :data-locations="locations" /> -->
+    <!-- <Galeri :data-galleries="galleries" /> -->
+    <!-- <Visi :data-abouts="abouts" /> -->
+    <!-- <Partner :data-partners="partners" /> -->
+    <!-- <HomeBlog :data-blogs="blogs" /> -->
     <TurVirtual />
-    <HubungiKami />
+    <!-- <HubungiKami /> -->
   </div>
 </template>
 <script>

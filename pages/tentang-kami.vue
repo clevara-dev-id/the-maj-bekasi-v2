@@ -1,11 +1,11 @@
 <template>
   <div class="pt-8">
     <div v-for="about in abouts" :key="about.id" class="my-16">
-      <!-- <div class="w-full" :style="`background: url(http://localhost:8000/storage/${about.image}) center center / cover no-repeat; height:300px`"></div> -->
+      <!-- <div class="w-full" :style="`background: url(${$store.state.storage_url+about.image}) center center / cover no-repeat; height:300px`"></div> -->
       <div class="bg-white">
         <img
           class="w-full lg:container lg:mx-auto lg:px-16"
-          :src="`http://localhost:8000/storage/${about.image}`"
+          :src="`${$store.state.storage_url+about.image}`"
           alt="hero about us"
         />
         <div class="pt-4 pb-32 container mx-auto px-8 mb-24">
@@ -25,7 +25,7 @@
           <img
             :class="index === 1 ? 'lg:mr-24 lg:ml-auto' : 'lg:mr-auto lg:ml-24'"
             class="mx-auto rounded-full h-16 w-16 border-2 border-orange-500 -mt-24 mb-16"
-            :src="`http://localhost:8000/storage/${vs.image}`"
+            :src="`${$store.state.storage_url+vs.image}`"
             :alt="vs.name"
           />
           <p class="text-base">{{vs.vision}}</p>

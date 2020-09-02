@@ -4,7 +4,7 @@
       <div class="flex justify-center flex-wrap">
         <div v-for="partner in dataPartners" :key="partner.id" class="p-2 w-1/3">
           <img
-            class="grayscale"
+            class="grayscale focus:outline-none"
             :src="$store.state.storage_url+partner.image"
             :alt="partner.name"
           />
@@ -14,7 +14,7 @@
     <div class="hidden lg:block">
 			<VueSlickCarousel v-bind="settings">
 				<div v-for="partner in dataPartners" :key="partner.id">
-					<img class="w-48 grayscale" :src="$store.state.storage_url+partner.image" :alt="partner.name">
+					<img class="w-48 grayscale focus:outline-none" :src="$store.state.storage_url+partner.image" :alt="partner.name">
 				</div>
 			</VueSlickCarousel>
 		</div>

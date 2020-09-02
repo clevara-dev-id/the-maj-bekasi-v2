@@ -11,7 +11,7 @@
     background-color: #FAFAFA;
   }
   h1, h5, .gilroy-bold{
-    font-family: gilroy bold;
+    font-family: sentinel bold;
   }
   p, h6, .proxima-nova{
     font-family: proxima nova;

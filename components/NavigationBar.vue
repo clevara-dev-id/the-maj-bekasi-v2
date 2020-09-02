@@ -1,5 +1,5 @@
 <template>
-  <div class="z-50 w-full fixed transition-all duration-300" :class="isTop">
+  <div class="z-50 w-full fixed transition-all duration-300 bg-white text-black" :class="{'scrolled': isTop === true}">
     <nav class="flex items-center lg:justify-between flex-wrap p-6">
       <div class="block lg:hidden">
         <button
@@ -23,7 +23,7 @@
               v-for="menu in menus"
               :key="menu.id"
               class="text-xxs uppercase font-bold tracking-widest lg:inline-block lg:mt-0 mr-8 transition-all duration-300 gilroy-bold"
-              :class="isTop"
+              :class="{'text-white':isTop === true}"
               :to="menu.link"
             >{{menu.name}}</nuxt-link>
             <div class="lg:inline-block lg:mt-0 mr-8">
@@ -56,11 +56,11 @@
               <div v-if="isOpen" class="absolute w-32 bg-white mt-2 shadow-xl rounded-sm py-2 z-50">
                 <nuxt-link
                   to="/tentang-kami"
-                  class="block py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
+                  class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
                 >Visi</nuxt-link>
                 <nuxt-link
                   to="/expertise"
-                  class="block py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
+                  class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
                 >Expertise</nuxt-link>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default {
 			{
 			id: 6,
 			name: "Tur Virtual",
-			link: "/tur-virtual",
+			link: "/#tur-virtual",
 			},
 		],
 		};
@@ -165,10 +165,10 @@ export default {
 		},
 		handlescroll() {
 			if(window.scrollY > 100){
-				this.isTop = "bg-black text-white"
+				this.isTop = true
 				this.buttonIsTop = "bg-white text-black"
 			}else{
-				this.isTop = "bg-white text-black"
+				this.isTop = false
 				this.buttonIsTop = "bg-indigo-500 text-white"
 			}
 		},
@@ -184,5 +184,9 @@ export default {
 <style lang="scss">
 .w-contact-us {
   width: 180px;
+}
+.scrolled{
+  background-color: #000 !important;
+  color: white !important;
 }
 </style>

@@ -8,12 +8,12 @@
       <div class="lg:py-8">
         <img
           class="w-28 mx-auto lg:mr-auto lg:ml-0 mb-12"
-          :src="`http://localhost:8000/storage/${JSON.parse(expertise.logo)[0].download_link}`"
+          :src="`${$store.state.storage_url+JSON.parse(expertise.logo)[0].download_link}`"
           alt="expertise logo"
         />
         <img
           class="w-28 mx-auto mb-12 lg:hidden"
-          :src="`http://localhost:8000/storage/${JSON.parse(expertise.images)[0].download_link}`"
+          :src="`${$store.state.storage_url+JSON.parse(expertise.images)[0].download_link}`"
           alt="expertise image"
         />
         <p class="text-base text-black">{{expertise.description}}</p>
@@ -21,7 +21,7 @@
       <div class="hidden lg:block">
         <img
           class="w-28 mx-auto mb-12"
-          :src="`http://localhost:8000/storage/${JSON.parse(expertise.images)[0].download_link}`"
+          :src="`${$store.state.storage_url+JSON.parse(expertise.images)[0].download_link}`"
           alt="expertise image"
         />
       </div>
