@@ -11,7 +11,7 @@
         v-for="(marker, index) in dataMarker"
         :key="index"
         :position="{lat: marker.latitude, lng: marker.longitude}"
-        :options="{icon: marker.icon === 'marketplace' ? pins.marketplace : (marker.icon === 'hospital' ? pins.hospital : (marker.icon === 'education' ? pins.education : (marker.icon === 'station' ? pins.station : (marker.icon === 'busway' ? pins.busway : (marker.icon === 'gor' ? pins.gor : (marker.icon === 'goverment' ? pins.goverment : pins.tolls))))))}"
+        :options="{icon: pins[marker.icon]}"
         @click="currentLocation = marker"
       >
         <GMapInfoWindow :options="{maxWidth: 200}">

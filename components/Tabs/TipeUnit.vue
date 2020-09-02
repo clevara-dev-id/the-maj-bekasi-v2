@@ -91,35 +91,33 @@
           v-model="activeIndex"
           ref="changeUnit"
           class="gilroy-bold text-lg w-2/5 mx-auto text-black uppercase bg-gray-100 focus:outline-none"
+          @change="selectChange"
         >
           <option v-for="(s, i) in dataUnits" :key="s.id" :value="i">{{s.unit_name}}</option>
         </select>
       </div>
     </div>
     <div
-      v-for="(dd, index) in dataUnits"
-      :key="dd.id"
-      :class="{'active-index':activeIndex === index}"
-      class="hidden lg:hidden container mx-auto px-8 bg-gray-100 pb-8"
+      class=" lg:hidden container mx-auto px-8 bg-gray-100 pb-8"
     >
-      <div v-if="activeIndex === index" class="pb-8">
+      <div class="pb-8">
         <h6
           class="verlag text-center text-xxs text-black tracking-wider uppercase"
-        >{{(dd.specs ? dd.specs.luas : '')}}</h6>
+        >{{(activeData.specs ? activeData.specs.luas : '')}}</h6>
         <div class="w-full py-4">
-          <VueSlickCarousel :ref="`denah${dd.id}`" v-bind="settings">
+          <VueSlickCarousel :ref="`denah${activeData.id}`" v-bind="settings">
             <div>
               <img
                 class="focus:outline-none text-center mx-auto w-1/2"
-                :src="$store.state.storage_url+(dd.specs? dd.specs.denah_ruang : '')"
-                :alt="(dd.specs ? dd.unit_name : '')"
+                :src="$store.state.storage_url+(activeData.specs? activeData.specs.denah_ruang : '')"
+                :alt="(activeData.specs ? activeData.unit_name : '')"
               />
             </div>
             <div>
               <img
                 class="focus:outline-none text-center mx-auto w-1/2"
-                :src="$store.state.storage_url+(dd.specs? dd.specs.denah_bangunan : '')"
-                :alt="(dd.specs ? dd.unit_name : '')"
+                :src="$store.state.storage_url+(activeData.specs? activeData.specs.denah_bangunan : '')"
+                :alt="(activeData.specs ? activeData.unit_name : '')"
               />
             </div>
           </VueSlickCarousel>
@@ -131,7 +129,7 @@
           <ul class="mt-4 list-disc">
             <li
               class="proxima-nova text-xxs tracking-wider my-2"
-              v-for="room in dd.room_list"
+              v-for="room in activeData.room_list"
               :key="room.id"
             >{{room.name}}</li>
           </ul>
@@ -140,7 +138,31 @@
           <h5
             class="text-base font-bold text-indigo-500 uppercase tracking-wider gilroy-bold text-center my-2"
           >review unit</h5>
-          <VueSlickCarousel v-bind="settingsOne" ref="c2" :asNavFor="($refs.c1 ? $refs.c1[0] : '')">
+          <!-- swiper1 -->
+          <swiper class="swiper" :options="swiperOptionTop" ref="mobileSwiperTop">
+            <swiper-slide v-for="gl in activeData.gallery" :key="gl.id">
+                <img
+                  class="focus:outline-none w-full"
+                  :src="$store.state.storage_url+gl.gambar"
+                  :alt="gl.nama"
+                />
+                <h5
+                  class="text-center uppercase my-3 font-bold proxima-nova text-base text-indigo-500"
+                >{{gl.nama}}</h5>
+            </swiper-slide>
+          </swiper>
+
+          <swiper class="swiper" :options="swiperOptionThumbs" ref="mobileSwiperThumbs">
+            <swiper-slide v-for="(g, index) in activeData.gallery" :key="index" class="focus:outline-none px-2">
+              <img
+                class="focus:outline-none w-full"
+                :src="$store.state.storage_url+g.gambar"
+                :alt="g.nama"
+              />
+            </swiper-slide>
+          </swiper>
+
+          <!-- <VueSlickCarousel v-bind="settingsOne" ref="c2" :asNavFor="($refs.c1 ? $refs.c1[0] : '')">
             <div v-for="gl in dd.gallery" :key="gl.id">
               <img
                 class="focus:outline-none w-full"
@@ -151,8 +173,8 @@
                 class="text-center uppercase my-3 font-bold proxima-nova text-base text-indigo-500"
               >{{gl.nama}}</h5>
             </div>
-          </VueSlickCarousel>
-          <VueSlickCarousel v-bind="settingsTwo" ref="c1" :asNavFor="($refs.c2 ? $refs.c2[0] : '')">
+          </VueSlickCarousel> -->
+          <!-- <VueSlickCarousel v-bind="settingsTwo" ref="c1" :asNavFor="($refs.c2 ? $refs.c2[0] : '')">
             <div v-for="(g, index) in dd.gallery" :key="index" class="focus:outline-none px-2">
               <img
                 class="focus:outline-none w-full"
@@ -160,9 +182,9 @@
                 :alt="g.nama"
               />
             </div>
-          </VueSlickCarousel>
+          </VueSlickCarousel> -->
         </div>
-        <MobileSimulasi :data-simulations="dd.unit_price" :data-name="dd.unit_name" />
+        <MobileSimulasi :data-simulations="activeData.unit_price" :data-name="activeData.unit_name" />
       </div>
     </div>
   </div>
@@ -190,6 +212,7 @@ export default {
     return {
       base_img: baseUrlImg,
       activeIndex: 0,
+      activeData: this.dataUnits[0],
       settings: {
         dots: true,
         arrows: false,
@@ -215,6 +238,20 @@ export default {
         slidesToShow: 3,
         slidesToScroll: 1,
       },
+      swiperOptionTop: {
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
+        spaceBetween: 10,
+      },
+      swiperOptionThumbs: {
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 3,
+        touchRatio: 0.2,
+        slideToClickedSlide: true,
+      }
     };
   },
   methods: {
@@ -225,7 +262,20 @@ export default {
       });
       return context.format(ctx);
     },
+    selectChange (event) {
+      if (this.activeIndex != event.target.value) return
+      this.activeData = this.dataUnits[this.activeIndex]
+    }
   },
+
+  mounted() {
+    this.$nextTick(() => {
+      const swiperTop = this.$refs.mobileSwiperTop.$swiper
+      const swiperThumbs = this.$refs.mobileSwiperThumbs.$swiper
+      swiperTop.controller.control = swiperThumbs
+      swiperThumbs.controller.control = swiperTop
+    })
+  }
 };
 </script>
 <style lang="scss" scoped>

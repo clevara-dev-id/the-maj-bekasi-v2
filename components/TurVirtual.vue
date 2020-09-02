@@ -2,6 +2,7 @@
   <div class="bg-v-tour">
     <div id="tur-virtual" class="container mx-auto px-8 lg:px-16 pt-16 py-8 lg:pt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
+      <client-only>
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="h-v-tour">
           <iframe :src="tour.link" width="100%" height="480px" frameborder="0"></iframe>
@@ -25,6 +26,7 @@
           </div>
         </div>
       </VueSlickCarousel>
+      </client-only>
     </div>
   </div>
 </template>

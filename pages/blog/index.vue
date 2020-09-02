@@ -17,7 +17,7 @@
         <p class="proxima-nova text-base">
           <strong class="font-bold">{{ activeBlog.lokasi }}, {{ activeBlog.sumber }}</strong> - {{ activeBlog.preview_text }}
         </p>
-        <!-- <span>{{ activeBlog.author }}</span> <br/> <span>{{ activeBlog.created_at }}</span> -->
+        <span>{{ activeBlog.author }}</span> <br/> <span>{{ activeBlog.created_at }}</span>
         <div class="w-full mt-4">
           <div class="flex my-2 items-center">
             <img class="w-5" src="/blog/person.svg" alt="author icon">
@@ -50,10 +50,10 @@
         <Tab name="Semua">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(all, i) in blogs" :key="i">
-              <nuxt-link :to="`/blog/${all.id}`">
+              <nuxt-link :to="`/blog/${all.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <img class="w-full" :src="$store.state.storage_url+all.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="all.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${all.id}`">
+              <nuxt-link :to="`/blog/${all.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ all.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ all.created_at }}</small>
@@ -64,10 +64,10 @@
         <Tab name="news">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(news, i) in getNews" :key="i" >
-              <nuxt-link :to="`/blog/${news.id}`">
+              <nuxt-link :to="`/blog/${news.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <img class="w-full" :src="$store.state.storage_url+news.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="news.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${news.id}`">
+              <nuxt-link :to="`/blog/${news.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ news.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ news.created_at }}</small>
@@ -78,10 +78,10 @@
         <Tab name="event">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(event, i) in getEvent" :key="i" >
-              <nuxt-link :to="`/blog/${event.id}`">
+              <nuxt-link :to="`/blog/${event.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <img class="w-full" :src="$store.state.storage_url+event.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="event.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${event.id}`">
+              <nuxt-link :to="`/blog/${event.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ event.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ event.created_at }}</small>
@@ -92,10 +92,10 @@
         <Tab name="media coverage">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(media, i) in getMedia" :key="i" >
-              <nuxt-link :to="`/blog/${media.id}`">
+              <nuxt-link :to="`/blog/${media.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <img class="w-full" :src="$store.state.storage_url+media.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="media.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${media.id}`">
+              <nuxt-link :to="`/blog/${media.heading.toLowerCase().replace(/\s/g, '-').replace(/[,]/g, '')}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ media.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ media.created_at }}</small>
@@ -138,10 +138,11 @@ export default {
     }
   },
   components,
-  async asyncData ({ $axios }) {
-    const { data } = await $axios.get('/blog-bekasi')
-    return { blogs: data }
+  async fetch (context) {
+    const { data } = await context.$axios.get('/blog-bekasi')
+    context.store.commit('addBlogs', data)
   },
+  fetchOnServer: false,
   methods: {
     handleSwipe(event, slick, direction) {
       console.log(event)
@@ -155,6 +156,9 @@ export default {
     }
   },
   computed: {
+    blogs () {
+      return this.$store.state.blogs
+    },
     activeBlog () {
       if (!this.blogs) return
       return this.blogs[this.activeClass]

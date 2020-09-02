@@ -73,18 +73,35 @@
 </template>
 <script>
 export default {
-  async asyncData({ $axios, params }) {
+  async asyncData(context) {
     // return {data:params.slug}
-    let a = await $axios.get(`/blog/${params.slug}`).then((res) => {
-      return res.data;
-		});
-		let b = await $axios.get(`/blog-bekasi`).then((res) => {
-      return res.data;
-    });
+    // let a = await $axios.get(`/blog/${params.slug}`).then((res) => {
+    //   return res.data;
+		// });
+		// let b = await $axios.get(`/blog-bekasi`).then((res) => {
+    //   return res.data;
+    // });
+    const blogContext = context.store.getters.getBlogBySlug(context.params.slug)
+    const artikelContext = context.store.state.blogs;
+    if (artikelContext &&
+      !artikelContext.length
+    ) {
+      try {
+        const { data } = await context.$axios.get('/blog-bekasi')
+        if (data) {
+          context.store.commit('addBlogs', data)
+        }
+        return {
+          blog: blogContext,
+          artikels: data
+        }
+      } catch (err) {
+        throw new Error(err)
+      }
+    }
     return {
-			blog: a,
-			artikels: b,
-      slug: params.slug,
+			blog: blogContext,
+			artikels: artikelContext,
     };
   },
   methods: {
@@ -103,7 +120,13 @@ export default {
 		return {
 			isShow:false
 		}
-	},
+  },
+
+  computed: {
+    blogs () {
+      return this.$store.state.blogs
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

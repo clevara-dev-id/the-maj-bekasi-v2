@@ -29,9 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
-    { src: '~assets/fonts/font.css' },
-    { src: "vue-slick-carousel/dist/vue-slick-carousel.css" },
-    { src: "vue-slick-carousel/dist/vue-slick-carousel-theme.css" },
+    { src: '~assets/fonts/font.css' }
   ],
   /*
   ** Plugins to load before mounting the App
@@ -39,7 +37,7 @@ export default {
   */
   plugins: [
     '@/plugins/axios',
-    { src: '@/plugins/vue-slick-carousel.js', mode: 'client' }
+    '@/plugins/vue-awesome-swiper',
   ],
   /*
   ** Auto import components
@@ -74,11 +72,6 @@ export default {
   */
   axios: {
     baseURL: process.env.API_URL,
-    proxy: true
-  },
-
-  proxy: {
-    '/api/': 'https://backend.themajbekasi.com',
   },
   /*
   ** Content module configuration
