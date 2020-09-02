@@ -208,7 +208,7 @@ export default {
       }
       if (this.title === true && this.name === true && this.email === true) {
         this.$axios
-          .$post("/-", data)
+          .$post("/subscribe", data)
           .then(() => {
             this.isOpen = true;
           })
