@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="container mx-auto px-8 lg:px-16 pt-32">
+    <div class="container mx-auto px-2 lg:px-16 pt-32">
       <Heading
         class="w-full lg:w-1/3"
         data-title="Tipe Unit"
         data-caption="Hunian Flexibel Untuk Generasi 'Zaman Now'"
       />
     </div>
-    <div class="mx-auto container px-8 lg:px-16 mt-24 hidden lg:block">
+    <div class="mx-auto container px-2 lg:px-16 mt-24 hidden lg:block">
       <t-tabs
         tag-items="div"
         tag-item="div"
@@ -82,7 +82,7 @@
         </template>
       </t-tabs>
     </div>
-    <div class="block lg:hidden container mx-auto px-8 mt-24 bg-gray-100 pt-8">
+    <div class="block lg:hidden container mx-auto px-2 mt-24 bg-gray-100 pt-8">
       <h6
         class="verlag text-center text-xxs text-black font-bold tracking-wider uppercase my-4"
       >pilih unit</h6>
@@ -97,7 +97,7 @@
       </div>
     </div>
 
-    <div class="active-index hidden lg:hidden container mx-auto px-8 bg-gray-100 pb-8">
+    <div class="active-index hidden lg:hidden container mx-auto px-2 bg-gray-100 pb-8">
       <div class="pb-8">
         <h6
           class="verlag text-center text-xxs text-black tracking-wider uppercase"
@@ -124,7 +124,7 @@
           <h6
             class="text-xxs gilroy-bold tracking-wider uppercase text-indigo-500 font-bold"
           >spesifikasi :</h6>
-          <ul class="mt-4 list-disc">
+          <ul class="mt-4 px-4 list-disc">
             <li
               class="proxima-nova text-xxs tracking-wider my-2"
               v-for="room in activeData.room_list"

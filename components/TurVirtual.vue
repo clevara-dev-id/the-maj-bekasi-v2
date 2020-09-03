@@ -1,13 +1,13 @@
 <template>
   <div class="bg-v-tour">
-    <div id="tur-virtual" class="container mx-auto px-8 lg:px-16 pt-16 py-8 lg:mt-48">
+    <div id="tur-virtual" class="container mx-auto px-4 lg:px-16 pt-16 py-8 lg:mt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full">
           <a class="w-full" :href="tour.link" target="_blank" rel="noopener noreferrer">
             <img class="w-full" :src="tour.image" :alt="tour.name">
           </a>
-          <div class="flex items-center justify-between lg:w-1/3 lg:mx-auto">
+          <div class="flex items-center justify-between w-3/4 lg:w-1/3 mx-auto">
             <button
               @click="prevClick"
               class="focus:outline-none block rounded-full w-8 h-8 text-center hover:bg-orange-500 hover:text-indigo-500"

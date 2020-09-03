@@ -1,22 +1,22 @@
 <template>
   <div class="pt-24">
-    <div class="container mx-auto px-8">
+    <div class="container mx-auto px-2">
         <VueSlickCarousel v-bind="settings" ref="herocarousel">
             <div class="relative focus:outline-none" v-for="(hero, index) in dataHeroes" :key="hero.id">
                 <h1 class="mt-4 mb-6 text-heading text-indigo-500 font-bold leading-8 capitalize lg:hidden">
                     Investasi pasti dengan harga yang kompetitif
                 </h1>
                 <img class="w-full" :src="$store.state.storage_url+hero.image" :alt="`the maj bekasi ${hero.caption}`">
-                <nuxt-link class="inline-block mt-6 bg-orange-500 w-full px-16 py-4 uppercase text-center text-sm text-white lg:hidden z-30 hover:bg-gray-500" :to="hero.link">jadwalkan tur</nuxt-link>
+                <nuxt-link class="inline-block mt-6 bg-orange-500 w-full px-16 py-4 uppercase text-center text-sm text-white lg:hidden z-30 hover:bg-gray-500" to="/#hubungi-kami">jadwalkan tur</nuxt-link>
                 <div class="hidden lg:block w-4/5 lg:px-8 lx:px-20 mt-content">
                     <div class="grid grid-cols-8">
                         <div class="col-span-5 bg-orange-500 h-48 pl-8 py-4 xl:pr-16">
                             <h1 class="text-heading font-bold text-white">
                                 {{hero.caption}}
                             </h1>
-                            <button class="px-12 py-3 uppercase text-orange-500 tracking-widest text-sm mt-4 bg-white inline-block z-10 hover:bg-gray-500 hover:text-black">
+                            <nuxt-link to="#" class="px-12 py-3 uppercase text-orange-500 tracking-widest text-sm mt-4 bg-white inline-block z-10 hover:bg-gray-500 hover:text-black">
                                 {{hero.button_text}}
-                            </button>
+                            </nuxt-link>
                         </div>
                         <div class="col-span-1 h-10 z-10">
                             <button @click="showPrev" class="p-8 w-full bg-orange-500 hover:bg-white focus:outline-none">
@@ -83,11 +83,13 @@ export default {
             // ]
             ,
             settings:{
-                "fade": true,
-                "infinite": true,
-                "speed": 500,
-                "slidesToShow": 1,
-                "slidesToScroll": 1
+                fade: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows:false,
+                dots:false
             }
         }
     },

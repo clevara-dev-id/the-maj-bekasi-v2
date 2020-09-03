@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-8 lg:px-16 pt-16 lg:pt-48">
+  <div class="container mx-auto px-2 lg:px-16 pt-16 lg:pt-48">
     <h1 class="text-heading font-bold text-indigo-500 capitalize text-center mb-16">update terbaru</h1>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-4">
       <div v-for="blog in dataBlogs.slice(0,3)" :key="blog.id">
@@ -16,7 +16,7 @@
       </div>
     </div>
 		<div class="my-16 text-center">
-			<nuxt-link class="bg-orange-500 px-8 py-4 text-sm text-white uppercase verlag tracking-widest mx-auto text-center" to="/blog">selengkapnya</nuxt-link>
+			<nuxt-link class="bg-orange-500 px-8 py-4 text-sm text-white uppercase verlag tracking-widest mx-auto text-center" to="/blogs">selengkapnya</nuxt-link>
 		</div>
   </div>
 </template>

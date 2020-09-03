@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-8 py-40">
     <div class="heading">
-			<h5 class="verlag text-base text-gray-600 tracking-widest uppercase"><nuxt-link class="hover:text-orange-500" to="/">home</nuxt-link> / <nuxt-link class="hover:text-orange-500" to="blog">blog</nuxt-link> / <span class="text-orange-500">{{slug}}</span></h5>
+			<h5 class="verlag text-base text-gray-600 tracking-widest uppercase"><nuxt-link class="hover:text-orange-500" to="/">home</nuxt-link> / <nuxt-link class="hover:text-orange-500" to="/blogs">blog</nuxt-link> / <span class="text-orange-500">{{slug}}</span></h5>
       <h5
         class="verlag text-base text-orange-500 tracking-widest uppercase mt-24"
       >{{blog.categories.replace(/["']/g, '').replace(/\[/g, '').replace(/\]/g, '')}}</h5>

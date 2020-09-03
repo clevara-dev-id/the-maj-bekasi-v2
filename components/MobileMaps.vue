@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <VueSlickCarousel ref="carouselmap">
+            <VueSlickCarousel ref="carouselmap" v-bind="settings">
                 <div class="focus:outline-none" v-for="location in dataMaps" :key="location.id">
                     <NuxtGoogleMaps :data-marker="location.marker" />
                     <div class="flex justify-center">

@@ -38,7 +38,8 @@
 			class="fixed inset-0 w-full h-full z-40"
 		></button>
     <div
-      class="container lg:w-1/2 lg:py-8 lg:mb-4 mx-auto px-8 lg:px-16 my-20 lg:mt-48 lg:bg-white"
+      id="hubungi-kami"
+      class="container lg:w-1/2 lg:py-8 lg:mb-4 mx-auto px-2 lg:px-16 my-20 lg:mt-48 lg:bg-white"
     >
       <h1 class="text-center font-bold text-heading text-indigo-500 my-8 capitalize">Hubungi Kami</h1>
       <p

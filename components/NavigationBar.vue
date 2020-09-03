@@ -53,7 +53,7 @@
                 @click="isOpen = false"
                 class="fixed inset-0 w-full h-full z-50"
               ></button>
-              <div v-if="isOpen" class="absolute w-32 bg-white mt-2 shadow-xl rounded-sm py-2 z-50">
+              <div v-if="isOpen" @click="isOpen = false" class="absolute w-32 bg-white mt-2 shadow-xl rounded-sm py-2 z-50">
                 <nuxt-link
                   to="/tentang-kami"
                   class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
@@ -68,7 +68,7 @@
           <nuxt-link
             class="w-contact-us text-center mt-0 inline-block px-4 py-2 uppercase tracking-widest font-bold verlag"
             to="/#hubungi-kami"
-			:class="buttonIsTop"
+			      :class="buttonIsTop"
           >Hubungi Kami</nuxt-link>
         </div>
       </div>
@@ -102,13 +102,13 @@
         </div>
         <div class="py-6">
           <ul>
-            <li v-for="menu in menus" :key="menu.id" class="mb-6">
+            <li @click="show" v-for="menu in menus" :key="menu.id" class="mb-6">
               <nuxt-link class="text-base text-black font-bold" :to="menu.link">{{menu.name}}</nuxt-link>
             </li>
-            <li class="mb-6">
+            <li @click="show" class="mb-6">
               <nuxt-link class="text-base text-black font-bold" to="/tentang-kami">Visi</nuxt-link>
             </li>
-            <li class="mb-6">
+            <li @click="show" class="mb-6">
               <nuxt-link class="text-base text-black font-bold" to="/expertise">Expertise</nuxt-link>
             </li>
           </ul>

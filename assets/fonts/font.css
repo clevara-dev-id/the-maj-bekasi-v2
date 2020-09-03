@@ -1,10 +1,10 @@
   @font-face {
-    font-family: sentinel bold;
-    src: url('./Sentinel/Sentinel-Bold.otf');
+    font-family: gilroy bold;
+    src: url('./Gilroy/Gilroy-Bold.ttf');
   }
   @font-face {
     font-family: verlag;
-    src: url('./Verlag/VerlagCondensed-Book.ttf');
+    src: url('./Verlag/Verlag-Book.ttf');
   }
   @font-face {
     font-family: proxima nova;

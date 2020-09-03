@@ -1,5 +1,5 @@
 <template>
-    <div id="fasilitas" class="container mx-auto px-8 lg:px-16 pt-24 lg:pt-40">
+    <div id="fasilitas" class="container mx-auto px-2 lg:px-16 pt-24 lg:pt-40">
         <Heading class="w-full lg:w-1/3" data-title="Fasilitas" data-caption="Untuk work-life balance yang lebih baik" />
         <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mt-12">
             <div v-for="(facility, index) in facilities.slice(0, itemShow)" :key="index" class="flex mb-4 py-2 lg:hidden">
