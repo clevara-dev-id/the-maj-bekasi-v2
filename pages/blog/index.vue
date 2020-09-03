@@ -13,7 +13,11 @@
         </vue-slick-carousel>
       <div class="col-span-3 lg:col-span-1 inline-block">
         <h5 class="verlag text-orange-500 text-base uppercase tracking-widest">{{ activeBlog.categories.replace(/"]/g, '').replace(/\["/g, '') }}</h5>
-        <h1 class="text-heading text-indigo-500 tracking-wide my-6">{{ activeBlog.heading }}</h1>
+        <nuxt-link :to="`/blog/${toSlug(activeBlog.heading)}`">
+        <h1 class="text-heading text-indigo-500 tracking-wide my-6">
+          {{ activeBlog.heading }}
+        </h1>
+        </nuxt-link>
         <p class="proxima-nova text-base">
           <strong class="font-bold">{{ activeBlog.lokasi }}, {{ activeBlog.sumber }}</strong> - {{ activeBlog.preview_text }}
         </p>
@@ -50,10 +54,10 @@
         <Tab name="Semua">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(all, i) in blogs" :key="i">
-              <nuxt-link :to="`/blog/${all.id}`">
+              <nuxt-link :to="`/blog/${toSlug(all.heading)}`">
                 <img class="w-full" :src="$store.state.storage_url+all.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="all.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${all.id}`">
+              <nuxt-link :to="`/blog/${toSlug(all.heading)}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ all.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ all.created_at }}</small>
@@ -64,10 +68,10 @@
         <Tab name="news">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(news, i) in getNews" :key="i" >
-              <nuxt-link :to="`/blog/${news.id}`">
+              <nuxt-link :to="`/blog/${toSlug(news.heading)}`">
                 <img class="w-full" :src="$store.state.storage_url+news.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="news.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${news.id}`">
+              <nuxt-link :to="`/blog/${toSlug(news.heading)}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ news.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ news.created_at }}</small>
@@ -78,10 +82,10 @@
         <Tab name="event">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(event, i) in getEvent" :key="i" >
-              <nuxt-link :to="`/blog/${event.id}`">
+              <nuxt-link :to="`/blog/${toSlug(event.heading)}`">
                 <img class="w-full" :src="$store.state.storage_url+event.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="event.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${event.id}`">
+              <nuxt-link :to="`/blog/${toSlug(event.heading)}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ event.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ event.created_at }}</small>
@@ -92,10 +96,10 @@
         <Tab name="media coverage">
           <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div v-for="(media, i) in getMedia" :key="i" >
-              <nuxt-link :to="`/blog/${media.id}`">
+              <nuxt-link :to="`/blog/${toSlug(media.heading)}`">
                 <img class="w-full" :src="$store.state.storage_url+media.image.replace('.jpg', '-thumbnail.jpg').replace('.png', '-thumbnail.png').replace('.jpeg', '-thumbnail.jpeg')" :alt="media.heading" loading="lazy" />
               </nuxt-link>
-              <nuxt-link :to="`/blog/${media.id}`">
+              <nuxt-link :to="`/blog/${toSlug(media.heading)}`">
                 <h1 class="text-lg mt-4 text-indigo-500">{{ media.heading }}</h1>
               </nuxt-link>
               <small class="text-orange-500">Posted On {{ media.created_at }}</small>
@@ -152,6 +156,10 @@ export default {
     },
     prev(){
       this.$refs.blogcarousel.prev()
+    },
+    toSlug (params) {
+      if (!params) { return }
+      return params.toLowerCase().replace(/\s/g, '-').replace(/\(/g, '').replace(/\)/g, '')
     }
   },
   computed: {
@@ -171,7 +179,7 @@ export default {
       if (!this.blogs) return
       return this.blogs.filter(d => d.categories.replace(/"]/g, '').replace(/\["/g, '').includes('Media Coverage'))
     }
-  }
+  },
 }
 </script>
 
