@@ -12,7 +12,8 @@
           <h1
             class="text-heading text-center font-bold text-indigo-500 capitalize my-12"
           >tentang kami</h1>
-          <p class="text-justify text-base text-black">{{about.tentang_kami}}</p>
+          <p class="w-2/3 mx-auto text-justify text-base text-black c-count-2 hidden lg:block" v-html="about.tentang_kami"></p>
+          <p class="mx-auto text-justify text-base text-black block lg:hidden" v-html="about.tentang_kami"></p>
         </div>
       </div>
       <h1 class="text-center text-heading text-indigo-500 font-bold my-8">Visi Kami</h1>
@@ -108,4 +109,8 @@ export default {
 };
 </script>
 <style lang="scss">
+  .c-count-2{
+    column-count: 2;
+    column-gap: 4rem;
+  }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto px-8 lg:px-16 py-24 lg:py-8 lg:my-48 lg:bg-white lg:shadow-xl lg:rounded-lg"
+    class="container mx-auto lg:w-4/6 lg:mb-16 px-8 lg:px-24 py-24 lg:py-8 lg:mt-32 lg:bg-white lg:shadow-sm lg:rounded-lg"
   >
     <h1 class="text-heading text-center font-bold text-indigo-500 mb-12">Visi Kami</h1>
     <div class="line-clamp text-justify">
@@ -8,12 +8,12 @@
         class="text-sm text-gray-700 lg:hidden"
         v-for="about in dataAbouts"
         :key="about.id"
-      >{{about.tentang_kami.substring(0,265)}}</p>
+      >{{about.tentang_kami.substring(0,373)}}</p>
       <p
         class="text-sm text-gray-700 hidden lg:block"
         v-for="about in dataAbouts"
         :key="about.id"
-      >{{about.tentang_kami}}</p>
+      >{{about.tentang_kami.substring(0,373)}}</p>
     </div>
     <div class="text-center my-4">
       <nuxt-link

@@ -29,7 +29,7 @@
             <div class="lg:inline-block lg:mt-0 mr-8">
               <button
                 @click="isOpen = !isOpen"
-                class="text-xxs flex uppercase font-bold focus:outline-none gilroy-bold"
+                class="text-xxs flex uppercase font-bold focus:outline-none gilroy-bold tracking-widest"
               >
                 Visi
                 <svg
@@ -44,7 +44,7 @@
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M2.64645 4.14645C2.84171 3.95118 3.15829 3.95118 3.35355 4.14645L6 6.79289L8.64645 4.14645C8.84171 3.95118 9.15829 3.95118 9.35355 4.14645C9.54882 4.34171 9.54882 4.65829 9.35355 4.85355L6.35355 7.85355C6.15829 8.04882 5.84171 8.04882 5.64645 7.85355L2.64645 4.85355C2.45118 4.65829 2.45118 4.34171 2.64645 4.14645Z"
-                    fill="black"
+                    :fill="iconFill"
                   />
                 </svg>
               </button>
@@ -121,7 +121,8 @@
 export default {
 	data() {
 		return {
-		isOpen: false,
+    isOpen: false,
+    iconFill: 'black',
 		isTop: "bg-white text-black",
 		buttonIsTop: "bg-indigo-500 text-white",
 		menus: [
@@ -165,9 +166,11 @@ export default {
 		},
 		handlescroll() {
 			if(window.scrollY > 100){
-				this.isTop = true
+        this.isTop = true
+        this.iconFill = 'white'
 				this.buttonIsTop = "bg-white text-black"
 			}else{
+        this.iconFill = 'black'
 				this.isTop = false
 				this.buttonIsTop = "bg-indigo-500 text-white"
 			}

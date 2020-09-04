@@ -25,7 +25,7 @@
             <img class="mx-auto" src="/gallery/chevron-down.svg" alt="icon left" />
           </button>
           <div class="mx-auto">
-            <h5 class="text-base">{{gallery.nama}} - {{gallery.unit ? gallery.unit.unit_name : ''}}</h5>
+            <h5 class="text-base">{{gallery.nama}} {{gallery.unit ? `- ${gallery.unit.unit_name}` : ''}}</h5>
             <h6 class="text-sm mt-6">{{index+1}} / {{dataGalleries.length}}</h6>
           </div>
           <button

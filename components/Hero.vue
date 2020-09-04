@@ -14,7 +14,7 @@
                             <h1 class="text-heading font-bold text-white">
                                 {{hero.caption}}
                             </h1>
-                            <nuxt-link to="#" class="px-12 py-3 uppercase text-orange-500 tracking-widest text-sm mt-4 bg-white inline-block z-10 hover:bg-gray-500 hover:text-black">
+                            <nuxt-link :to="hero.link" class="px-12 py-3 uppercase text-orange-500 tracking-widest text-sm mt-4 bg-white inline-block z-10 hover:bg-indigo-500 hover:text-white">
                                 {{hero.button_text}}
                             </nuxt-link>
                         </div>
@@ -106,5 +106,8 @@ export default {
 <style lang="scss">
     .mt-content{
         margin-top: -5.5rem;
+    }
+    .slick-active{
+        z-index: 99;
     }
 </style>

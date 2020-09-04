@@ -45,7 +45,7 @@
       <div class="col-span-1 text-lg proxima-nova capitalize">IDR {{rp_format(dataSimulations*20/100)}}</div>
       <div class="col-span-1 text-lg proxima-nova capitalize">Bunga</div>
       <div class="col-span-1 text-lg proxima-nova capitalize">
-        <input v-model="interest" @keyup="handleChange" type="number" value="8" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <input v-model="interest" @change="handleChange" type="number" min="8" max="100" value="8" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
       </div>
     </div>
     <div class="grid grid-cols-4 mt-6 items-center">

@@ -1,9 +1,9 @@
 <template>
-  <div class="container mx-auto px-2 lg:px-16 pt-16 lg:pt-48">
+  <div class="container mx-auto px-2 lg:px-16 pt-16 lg:pt-32">
     <h1 class="text-heading font-bold text-indigo-500 capitalize text-center mb-16">update terbaru</h1>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-4">
       <div v-for="blog in dataBlogs.slice(0,3)" :key="blog.id">
-        <nuxt-link :to="`/blog/${blog.heading.replace(/\+s/, '-')}`">
+        <nuxt-link :to="`/blog/${blog.heading}`">
           <div
             class="w-full h-post-thumbnail"
             :style="`background:url(${$store.state.storage_url+blog.image}) center center / cover no-repeat;`"

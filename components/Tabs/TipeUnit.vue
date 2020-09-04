@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="container mx-auto px-2 lg:px-16 pt-32">
+    <div id="denah-unit" class="container mx-auto px-2 lg:px-16 pt-32">
       <Heading
         class="w-full lg:w-1/3"
         data-title="Tipe Unit"
         data-caption="Hunian Flexibel Untuk Generasi 'Zaman Now'"
       />
     </div>
-    <div class="mx-auto container px-2 lg:px-16 mt-24 hidden lg:block">
+    <div class="mx-auto container px-2 lg:px-16 mt-12 hidden lg:block">
       <t-tabs
         tag-items="div"
         tag-item="div"
@@ -328,7 +328,7 @@ $inActiveBg: #fbf7f6;
 }
 
 ::v-deep .tabs-component-panels.children {
-  margin: 10rem 0rem;
+  margin: 7rem 0rem;
   .tabs-component-panel {
     margin-left: -15px;
     margin-right: -15px;

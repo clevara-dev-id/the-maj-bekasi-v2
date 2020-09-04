@@ -1,7 +1,7 @@
 <template>
   <div class="bg-v-tour">
     <div v-if="modalShow" class="w-full h-full bg-gray-200 bg-opacity-50 fixed inset-0 z-50">
-      <div class="w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
+      <div class="w-full lg:w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
         <div class="text-center relative">
           <button class="absolute right-0 top-0" @click="modalShow = !modalShow">
             <svg

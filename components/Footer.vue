@@ -35,56 +35,56 @@
     <button v-if="isOpen" @click="isOpen = false" class="fixed inset-0 w-full h-full z-40"></button>
     <div class="bg-black">
       <div class="container mx-auto px-8 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-6 gap-20 lg:gap-4">
-          <div class="lg:col-span-2">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-20 lg:gap-4">
+          <div class="lg:col-span-1">
             <img class="w-1/2" src="/logo-bw.svg" alt="the maj bekasi logo inverse" />
             <div class="flex justify-start my-8">
-              <nuxt-link v-for="(sm, index) in dataSocmed" :key="index" :to="sm.link">
+              <a :href="sm.link" target="_blank" v-for="(sm, index) in dataSocmed" :key="index" >
                 <img class="mr-6" :src="`/footer/${sm.icon}.svg`" :alt="sm.name" />
-              </nuxt-link>
+              </a>
             </div>
             <img
               class="w-full lg:w-2/3 mt-16 lg:mt-32"
-              src="/footer/the-maj-group.svg"
+              src="/footer/partof.png"
               alt="the maj group"
             />
           </div>
-          <div class="lg:col-span-1">
+          <div class="lg:col-span-1 lg:pl-8">
             <h5 class="text-sm text-white uppercase font-bold mb-8">join our family</h5>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2"
+              class="text-white hover:text-orange-500 block my-2"
               to="/careers"
             >Careers</nuxt-link>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2"
+              class="text-white hover:text-orange-500 block my-2"
               to="/investors"
             >Investors</nuxt-link>
           </div>
           <div class="text-white lg:col-span-1">
             <h5 class="text-sm text-white uppercase font-bold mb-8">explore our world</h5>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2 capitalize"
+              class="text-white hover:text-orange-500 block my-2 capitalize"
               to="/hubungi-kami"
             >contact us</nuxt-link>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2 capitalize"
+              class="text-white hover:text-orange-500 block my-2 capitalize"
               to="/#"
             >Ancora Capital Management</nuxt-link>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2 capitalize"
+              class="text-white hover:text-orange-500 block my-2 capitalize"
               to="/#"
             >Media Center</nuxt-link>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2 capitalize"
+              class="text-white hover:text-orange-500 block my-2 capitalize"
               to="/privasi"
             >Privacy</nuxt-link>
             <nuxt-link
-              class="text-lg text-white hover:text-orange-500 block my-2 capitalize"
+              class="text-white hover:text-orange-500 block my-2 capitalize"
               to="/terms-and-condition"
             >terms and conditions</nuxt-link>
           </div>
           <div class="text-white lg:col-span-2">
-            <h5 class="text-sm text-white uppercase font-bold mb-8">explore our world</h5>
+            <h5 class="text-sm text-white uppercase font-bold mb-8">Subscribe for the MAJ GROUP Exclusive news & Offers</h5>
             <div class="flex flex-wrap -mx-3 mb-2">
               <div class="w-full lg:w-1/3 px-3 mb-6">
                 <div class="relative">
@@ -151,8 +151,8 @@
               type="submit"
               class="py-2 px-8 text-black text-sm tracking-widest bg-white uppercase font-bold hover:bg-orange-500 hover:text-white"
             >subscribe</button>
-            <p class="mt-4 text-white">
-              By entering your details you consent to be contacted via email by the Belmond group with offers and updates. To opt out, use the unsubscribe link or email
+            <p class="mt-4 text-white proxima-nova text-xxs">
+              By entering your details you consent to be contacted via email by the MAJ group with offers and updates. To opt out, use the unsubscribe link or email
               <a
                 class="text-white hover:text-orange-500"
                 href="mailto:unsubscribe@themajgroup.com"
