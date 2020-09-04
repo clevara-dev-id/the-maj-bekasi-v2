@@ -10,6 +10,7 @@
     <HomeBlog :data-blogs="blogs" />
     <TurVirtual />
     <HubungiKami />
+    <Footer :data-socmed="socmed" />
   </div>
 </template>
 <script>
@@ -49,6 +50,9 @@ export default {
     let g = await $axios.get("/units").then((res) => {
       return res.data;
     });
+    let x = await $axios.get("/bekasi-social-media").then((res) => {
+      return res.data
+    })
 
     return {
       heroes: a,
@@ -58,6 +62,7 @@ export default {
       partners: e,
       blogs: f,
       units: g,
+      socmed: x,
     };
   },
 };

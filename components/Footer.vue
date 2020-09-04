@@ -39,18 +39,12 @@
           <div class="lg:col-span-2">
             <img class="w-1/2" src="/logo-bw.svg" alt="the maj bekasi logo inverse" />
             <div class="flex justify-start my-8">
-              <nuxt-link to="http://instagram.com">
-                <img class="mr-6" src="/footer/icon.svg" alt="icon" />
-              </nuxt-link>
-              <nuxt-link to="http://facebook.com">
-                <img class="mr-6" src="/footer/icon-1.svg" alt="icon" />
-              </nuxt-link>
-              <nuxt-link to="http://twitter.com">
-                <img class="mr-6" src="/footer/icon-2.svg" alt="icon" />
+              <nuxt-link v-for="(sm, index) in dataSocmed" :key="index" :to="sm.link">
+                <img class="mr-6" :src="`/footer/${sm.icon}.svg`" :alt="sm.name" />
               </nuxt-link>
             </div>
             <img
-              class="w-1/2 lg:w-2/3 mt-16 lg:mt-32"
+              class="w-full lg:w-2/3 mt-16 lg:mt-32"
               src="/footer/the-maj-group.svg"
               alt="the maj group"
             />
@@ -92,7 +86,7 @@
           <div class="text-white lg:col-span-2">
             <h5 class="text-sm text-white uppercase font-bold mb-8">explore our world</h5>
             <div class="flex flex-wrap -mx-3 mb-2">
-              <div class="w-1/3 px-3 mb-6">
+              <div class="w-full lg:w-1/3 px-3 mb-6">
                 <div class="relative">
                   <select
                     :class="{'border-red-600': (title === false)}"
@@ -123,7 +117,7 @@
                   >Please fill out this field.</p>
                 </div>
               </div>
-              <div class="w-2/3 px-3 mb-6">
+              <div class="w-full lg:w-2/3 px-3 mb-6">
                 <input
                   :class="{'border-red-600': (name === false)}"
                   class="appearance-none block w-full bg-white text-gray-700 border border-white rounded-sm py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -175,6 +169,7 @@
 </template>
 <script>
 export default {
+  props:['dataSocmed'],
   methods: {
     show() {
       this.isOpen = !this.isOpen;
@@ -226,6 +221,7 @@ export default {
   },
   data() {
     return {
+      socialmedia: 'default',
       isOpen: false,
       error: false,
       title: true,

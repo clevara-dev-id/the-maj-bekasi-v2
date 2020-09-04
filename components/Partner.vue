@@ -3,18 +3,22 @@
     <div class="container mx-auto px-2 lg:px-16 mt-0 lg:mt-48 lg:hidden">
       <div class="flex justify-center flex-wrap">
         <div v-for="partner in dataPartners" :key="partner.id" class="p-2 w-1/3">
-          <img
-            class="grayscale focus:outline-none"
-            :src="$store.state.storage_url+partner.image"
-            :alt="partner.name"
-          />
+          <a :href="partner.link">
+            <img
+              class="grayscale focus:outline-none"
+              :src="$store.state.storage_url+partner.image"
+              :alt="partner.name"
+            />
+          </a>
         </div>
       </div>
     </div>
     <div class="hidden lg:block">
 			<VueSlickCarousel v-bind="settings">
 				<div v-for="partner in dataPartners" :key="partner.id">
-					<img class="w-48 grayscale focus:outline-none" :src="$store.state.storage_url+partner.image" :alt="partner.name">
+					<a :href="partner.link">
+            <img class="w-48 grayscale focus:outline-none mx-auto" :src="$store.state.storage_url+partner.image" :alt="partner.name">
+          </a>
 				</div>
 			</VueSlickCarousel>
 		</div>
@@ -36,10 +40,10 @@ export default {
 				arrows: false,
 				dots: false,
 				infinite: true,
-				slidesToShow: 4,
-				slidesToScroll: 4,
+				slidesToShow: 3,
+				slidesToScroll: 3,
 				autoplay: true,
-				speed: 4000,
+				speed: 500,
 				autoplaySpeed: 4000,
 				cssEase: "linear",
 				pauseOnFocus: true,

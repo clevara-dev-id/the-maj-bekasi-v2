@@ -1,5 +1,6 @@
 <template>
-  <div class="container mx-auto px-8 py-40">
+  <div>
+    <div class="container mx-auto px-8 py-40">
     <div class="heading">
 			<h5 class="verlag text-base text-gray-600 tracking-widest uppercase"><nuxt-link class="hover:text-orange-500" to="/">home</nuxt-link> / <nuxt-link class="hover:text-orange-500" to="/blogs">blog</nuxt-link> / <span class="text-orange-500">{{slug}}</span></h5>
       <h5
@@ -70,6 +71,8 @@
 			</div>
 		</div>
   </div>
+  <Footer :data-socmed="socmed" />
+  </div>
 </template>
 <script>
 export default {
@@ -81,9 +84,13 @@ export default {
 		let b = await $axios.get(`/blog-bekasi`).then((res) => {
       return res.data;
     });
+    let x = await $axios.get("/bekasi-social-media").then((res) => {
+      return res.data
+    })
     return {
 			blog: a,
-			artikels: b,
+      artikels: b,
+      socmed: x,
       slug: params.slug,
     };
   },

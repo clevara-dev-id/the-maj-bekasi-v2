@@ -1,11 +1,15 @@
 <template>
   <div>
     <NavigationBar />
+    <FloatingIcon />
     <Nuxt />
-    <Footer />
   </div>
 </template>
-
+<script>
+export default {
+  
+}
+</script>
 <style>
   body{
     background-color: #FAFAFA;

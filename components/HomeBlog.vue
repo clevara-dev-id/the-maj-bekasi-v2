@@ -16,7 +16,7 @@
       </div>
     </div>
 		<div class="my-16 text-center">
-			<nuxt-link class="bg-orange-500 px-8 py-4 text-sm text-white uppercase verlag tracking-widest mx-auto text-center" to="/blogs">selengkapnya</nuxt-link>
+			<nuxt-link class="bg-orange-500 px-8 py-4 text-sm text-white uppercase verlag tracking-widest mx-auto text-center" to="/blog">selengkapnya</nuxt-link>
 		</div>
   </div>
 </template>

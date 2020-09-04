@@ -4,6 +4,7 @@
 		<div class="container mx-auto px-8">
 			<p class="text-base text-black mb-48" v-html="privacy.text"></p>
 		</div>
+    <Footer :data-socmed="socmed" />
 	</div>
 </template>
 <script>
@@ -21,8 +22,14 @@ export default {
     };
   },
   async asyncData({ $axios }) {
-		let a = await $axios.get('/privacy-policy').then((res) => { return res.data})
-		return {privacy:a}
+    let a = await $axios.get('/privacy-policy').then((res) => { return res.data})
+    let x = await $axios.get("/bekasi-social-media").then((res) => {
+      return res.data;
+    });
+		return {
+      privacy:a,
+      socmed:x
+    }
 	},
 };
 </script>

@@ -15,7 +15,7 @@
 
       <div class="lg:container mx-auto xl:px-16 flex">
         <div class="flex items-center flex-shrink-0 text-white mx-auto">
-          <nuxt-link to="/"><img class="w-24 lg:w-32 lg:mx-16" src="~/assets/the-maj-bekasi-logo.svg" alt="the maj bekasi" /></nuxt-link>
+          <nuxt-link to="/"><img class="w-24 w-16 h-16 lg:w-32 lg:mx-16" src="~/assets/logo.svg" alt="the maj bekasi" /></nuxt-link>
         </div>
         <div class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
           <div class="ml-auto">
@@ -80,7 +80,7 @@
       <div id="navContent" class="absolute top-0 w-full py-8 pl-6 pr-8 h-full hidden">
         <div class="flex items-center justify-between flex-wrap pb-6 border-b">
           <div class="flex items-center flex-shrink-0 text-white mx-auto">
-            <img class="w-24" src="~/assets/the-maj-bekasi-logo.svg" alt="the maj bekasi" />
+            <img class="w-24" src="~/assets/logo.svg" alt="the maj bekasi" />
           </div>
           <button class="flex flex-grow w-auto items-center" @click="show">
             <svg

@@ -4,14 +4,16 @@
       ref="gMap"
       language="en"
       :center="{lat: -6.239812, lng: 106.995690}"
-      :options="{fullscreenControl: false}"
-      :zoom="11"
+      :options="{fullscreenControl: false, styles: mapStyle}"
+      :zoom="14"
     >
       <GMapMarker
         v-for="(marker, index) in dataMarker"
         :key="index"
         :position="{lat: marker.latitude, lng: marker.longitude}"
-        :options="{icon: marker.icon === 'marketplace' ? pins.marketplace : (marker.icon === 'hospital' ? pins.hospital : (marker.icon === 'education' ? pins.education : (marker.icon === 'station' ? pins.station : (marker.icon === 'busway' ? pins.busway : (marker.icon === 'gor' ? pins.gor : (marker.icon === 'goverment' ? pins.goverment : pins.tolls))))))}"
+        :options="{
+          icon: marker.icon === 'marketplace' ? pins.marketplace : (marker.icon === 'hospital' ? pins.hospital : (marker.icon === 'education' ? pins.education : (marker.icon === 'station' ? pins.station : (marker.icon === 'busway' ? pins.busway : (marker.icon === 'gor' ? pins.gor : (marker.icon === 'goverment' ? pins.goverment : pins.tolls))))))
+          }"
         @click="currentLocation = marker"
       >
         <GMapInfoWindow :options="{maxWidth: 200}">
@@ -19,10 +21,10 @@
         </GMapInfoWindow>
       </GMapMarker>
       <GMapMarker :position="{lat: -6.239812, lng: 106.995690}" :options="{icon: pins.company}">
-				<GMapInfoWindow :options="{maxWidth: 200}">
+        <GMapInfoWindow :options="{maxWidth: 200}">
           <code>The Maj Residence Bekasi</code>
         </GMapInfoWindow>
-			</GMapMarker>
+      </GMapMarker>
     </GMap>
   </div>
 </template>
@@ -32,6 +34,7 @@ export default {
   data() {
     return {
       currentLocation: {},
+      locationsVisibleOnMap: "",
       locations: [
         {
           lat: 44.933076,
@@ -54,9 +57,45 @@ export default {
         busway: "/maps/busway.svg",
         gor: "/maps/gor.svg",
         goverment: "/maps/goverment.svg",
-				tolls: "/maps/tolls.svg",
-				company: "/maps/company.svg",
+        tolls: "/maps/tolls.svg",
+        company: "/maps/company.svg",
       },
+      mapStyle: [
+        {
+          featureType: "administrative",
+          elementType: "geometry",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+        {
+          featureType: "poi",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+        {
+          featureType: "road",
+          elementType: "labels.icon",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+        {
+          featureType: "transit",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+      ],
     };
   },
 };

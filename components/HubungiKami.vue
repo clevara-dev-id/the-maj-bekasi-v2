@@ -45,9 +45,9 @@
       <p
         class="text-base text-center w-10/12 mx-auto"
       >Kami siap menjawab semua pertanyaanmu. Isi detail di bawah ini agar kami dapat menghubungimu atau kunjungi langsung Marketing Gallery kami.</p>
-      <div class="w-full mt-8 p-8">
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-1/3 px-3 mb-6 md:mb-0 relative">
+      <div class="w-full mt-8 py-8 px-2">
+        <div class="flex flex-wrap -mx-3 mb-0 md:mb-6">
+          <div class="w-1/3 pl-3 mb-6 md:mb-0 relative">
             <select
               :class="{'border-red-600': (title === false)}"
               class="block appearance-none rounded-sm w-full bg-white border border-gray-500 text-gray-700 py-3 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-800"
@@ -59,7 +59,7 @@
               <option value="Ibu.">Ibu</option>
             </select>
             <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-gray-700"
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-700"
             >
               <svg
                 class="fill-current h-4 w-4"

@@ -37,6 +37,7 @@
     <div class="bg-white py-24">
       <Partner :data-partners="partners" />
     </div>
+    <Footer :data-socmed="socmed" />
   </div>
 </template>
 <script>
@@ -56,9 +57,11 @@ export default {
   async asyncData({ $axios }) {
     let a = await $axios.get("/about-bekasi").then(res => {return res.data});
     let b = await $axios.get("/partnership").then(res => {return res.data});
+    let x = await $axios.get("/bekasi-social-media").then(res => {return res.data});
     return {
       abouts: a,
-      partners: b
+      partners: b,
+      socmed:x
     }
   },
   // asyncData({$axios}) {

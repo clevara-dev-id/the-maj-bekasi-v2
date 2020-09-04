@@ -1,5 +1,6 @@
 <template>
-  <div id="blog" class="container mx-auto px-8 pt-32">
+  <div>
+    <div id="blog" class="container mx-auto px-8 pt-32">
     <div class="grid grid-cols-3 gap-8">
       <!-- <div class="col-start-1 col-end-3"> -->
         <vue-slick-carousel class="col-span-3 lg:col-span-2" ref="blogcarousel"  v-bind="settings" @afterChange="handleSwipe">
@@ -109,6 +110,8 @@
       </Tabs>
 
     </div>
+    <Footer :data-socmed="socmed" />
+  </div>
   </div>
 </template>
 
@@ -144,7 +147,11 @@ export default {
   components,
   async asyncData ({ $axios }) {
     const { data } = await $axios.get('/blog-bekasi')
-    return { blogs: data }
+    let x = await $axios.get("/bekasi-social-media").then(res => {return res.data});
+    return { 
+      blogs: data,
+      socmed: x
+    }
   },
   methods: {
     handleSwipe(event, slick, direction) {

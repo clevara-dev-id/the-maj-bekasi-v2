@@ -1,11 +1,42 @@
 <template>
   <div class="bg-v-tour">
+    <div v-if="modalShow" class="w-full h-full bg-gray-200 bg-opacity-50 fixed inset-0 z-50">
+      <div class="w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
+        <div class="text-center relative">
+          <button class="absolute right-0 top-0" @click="modalShow = !modalShow">
+            <svg
+              class
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15.5303 0.46967C15.2374 0.176777 14.7626 0.176777 14.4697 0.46967L8 6.93934L1.53033 0.46967C1.23744 0.176777 0.762563 0.176777 0.46967 0.46967C0.176777 0.762563 0.176777 1.23744 0.46967 1.53033L6.93934 8L0.46967 14.4697C0.176777 14.7626 0.176777 15.2374 0.46967 15.5303C0.762563 15.8232 1.23744 15.8232 1.53033 15.5303L8 9.06066L14.4697 15.5303C14.7626 15.8232 15.2374 15.8232 15.5303 15.5303C15.8232 15.2374 15.8232 14.7626 15.5303 14.4697L9.06066 8L15.5303 1.53033C15.8232 1.23744 15.8232 0.762563 15.5303 0.46967Z"
+                fill="#232323"
+              />
+            </svg>
+          </button>
+          <div class="p-8">
+            <!-- <h1 class="text-heading text-indigo-500 font-bold capitalize">Thank You!</h1> -->
+            <a target="_blank" :href="modalLink" class="text-base capitalize inline-block text-blue-500 underline hover:no-underline hover:text-indigo-500">
+              {{modalLink}}  
+            </a>
+            <h5 class="text-base capitalize mt-4">You will be redirected to the url above.</h5>
+            <a target="_blank" :href="modalLink" class="px-8 py-4 bg-indigo-500 text-white hover:bg-orange-500 mt-8 block">continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="tur-virtual" class="container mx-auto px-4 lg:px-16 pt-16 py-8 lg:mt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
-        <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full">
-          <a class="w-full" :href="tour.link" target="_blank" rel="noopener noreferrer">
-            <img class="w-full" :src="tour.image" :alt="tour.name">
+        <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full focus:outline-none">
+          <a class="w-full" @click="showModal(tour.link)">
+            <img class="w-full" :src="tour.image" :alt="tour.name" />
           </a>
           <div class="flex items-center justify-between w-3/4 lg:w-1/3 mx-auto">
             <button
@@ -32,21 +63,27 @@
 </template>
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+// import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "TourVirtualComponent",
   components: { VueSlickCarousel },
   methods: {
     nextClick() {
-      this.$refs.vtour.next();
+      this.$refs.vtour.next()
     },
     prevClick() {
-      this.$refs.vtour.prev();
+      this.$refs.vtour.prev()
+    },
+    showModal(obj) {
+      this.modalShow = true
+      this.modalLink = obj
     },
   },
   data() {
     return {
+      modalShow: false,
+      modalLink: "none",
       vtours: [
         {
           id: 1,
@@ -62,7 +99,7 @@ export default {
         },
         {
           id: 3,
-          name: "Lobby R 02",
+          name: "Lobby",
           link: "https://poly.google.com/view/3I5SHJ3nUJ0/embed?chrome=min",
           image: "/vtour/lobby.png",
         },
