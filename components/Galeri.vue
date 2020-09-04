@@ -1,5 +1,5 @@
 <template>
-  <div id="galeri" class="pt-24 lg:pt-32 lg:mt-12">
+  <div id="galeri" class="pt-24 lg:mt-12">
     <div class="bg-indigo-500 py-16 galeri">
       <div class="w-11/12 lg:w-full mx-auto px-2 lg:px-0">
         <h1 class="text-heading capitalize text-white font-bold text-center mb-12">Galeri</h1>

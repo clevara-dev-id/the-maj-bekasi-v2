@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="denah-unit" class="container mx-auto px-2 lg:px-16 pt-32">
+    <div id="denah-unit" class="container mx-auto px-2 lg:px-16 pt-40">
       <Heading
         class="w-full lg:w-1/3"
         data-title="Tipe Unit"

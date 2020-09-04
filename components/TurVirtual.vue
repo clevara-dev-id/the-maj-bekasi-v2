@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div id="tur-virtual" class="container mx-auto px-4 lg:px-16 pt-16 py-8 lg:mt-48">
+    <div id="tur-virtual" class="container mx-auto px-4 lg:px-16 pt-32 py-8 lg:mt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full focus:outline-none">
