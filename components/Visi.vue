@@ -3,12 +3,12 @@
     class="container mx-auto lg:w-4/6 lg:mb-16 px-8 lg:px-24 py-24 lg:py-8 lg:mt-32 lg:bg-white lg:shadow-sm lg:rounded-lg"
   >
     <h1 class="text-heading text-center font-bold text-indigo-500 mb-12">Visi Kami</h1>
-    <div class="line-clamp text-justify">
+    <div class="text-justify">
       <p
         class="text-sm text-gray-700 lg:hidden"
         v-for="about in dataAbouts"
         :key="about.id"
-      >{{about.tentang_kami.substring(0,373)}}</p>
+      >{{about.tentang_kami.substring(0,160)}}</p>
       <p
         class="text-sm text-gray-700 hidden lg:block"
         v-for="about in dataAbouts"

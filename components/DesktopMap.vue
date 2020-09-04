@@ -58,8 +58,7 @@
               >
                 <div class="flex items-center">
                   <img class="mr-4 w-6" :src="`/maps/${marker.icon}.svg`" alt="maps marker icon" />
-                  <span class="text-orange-500">&#177; {{marker.estimasi}}</span>
-                  KE {{marker.name}}
+                  <span><b class="text-orange-500 font-normal whitespace-normal">&#177; {{marker.estimasi}} </b> KE {{marker.name}}</span>
                 </div>
               </li>
             </ul>

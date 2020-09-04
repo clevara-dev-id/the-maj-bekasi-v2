@@ -14,6 +14,11 @@ export default {
   body{
     background-color: #FAFAFA;
   }
+  @media screen and (max-width: 320px) {
+    .text-heading{
+      font-size:1.5rem;
+    }
+  }
   h1, h5, .gilroy-bold{
     font-family: gilroy bold;
   }

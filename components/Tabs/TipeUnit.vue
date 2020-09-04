@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="denah-unit" class="container mx-auto px-2 lg:px-16 pt-40">
+    <div id="denah-unit" class="container mx-auto px-2 lg:px-16 pt-24 lg:pt-40">
       <Heading
         class="w-full lg:w-1/3"
         data-title="Tipe Unit"
@@ -82,9 +82,9 @@
         </template>
       </t-tabs>
     </div>
-    <div class="block lg:hidden container mx-auto px-2 mt-24 bg-gray-100 pt-8">
+    <div class="block lg:hidden container mx-auto px-2 mt-4 bg-gray-100 pt-4">
       <h6
-        class="verlag text-center text-xxs text-black font-bold tracking-wider uppercase my-4"
+        class="verlag text-center text-xxs text-black font-bold tracking-wider uppercase mt-4"
       >pilih unit</h6>
       <div class="text-center py-2">
         <select

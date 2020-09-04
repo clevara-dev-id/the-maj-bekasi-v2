@@ -1,6 +1,6 @@
 <template>
   <div class="z-50 w-full fixed transition-all duration-300 bg-white text-black" :class="{'scrolled': isTop === true}">
-    <nav class="flex items-center lg:justify-between flex-wrap p-6">
+    <nav class="flex items-center lg:justify-between flex-wrap px-6 py-2 md:p-6">
       <div class="block lg:hidden">
         <button
           @click="show"
