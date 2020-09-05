@@ -1,7 +1,7 @@
 <template>
   <div class="z-50 w-full fixed transition-all duration-300 bg-white text-black" :class="{'scrolled': isTop === true}">
     <nav class="flex items-center lg:justify-between flex-wrap px-6 py-2 md:p-6">
-      <div class="block lg:hidden">
+      <div class="absolute lg:hidden">
         <button
           @click="show"
           class="flex items-center text-orange-500 hover:text-indigo-500 focus:outline-none"
@@ -15,14 +15,14 @@
 
       <div class="lg:container mx-auto xl:px-16 flex">
         <div class="flex items-center flex-shrink-0 text-white mx-auto">
-          <nuxt-link to="/"><img class="w-24 w-16 h-16 lg:w-32 lg:mx-16" src="~/assets/logo.svg" alt="the maj bekasi" /></nuxt-link>
+          <nuxt-link to="/"><img class="w-24 w-16 h-16 lg:w-32 lg:mx-10" src="~/assets/logo.svg" alt="the maj bekasi" /></nuxt-link>
         </div>
-        <div class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
-          <div class="ml-auto">
+        <div class="w-full hidden lg:flex justify-end justify-between lg:items-center xl:ml-16">
+          <div class="w-full flex lg:justify-end xl:justify-between">
             <nuxt-link
               v-for="menu in menus"
               :key="menu.id"
-              class="text-xxs uppercase font-bold tracking-widest lg:inline-block lg:mt-0 mr-8 transition-all duration-300 gilroy-bold"
+              class="text-xxs uppercase font-bold tracking-widest lg:inline-block lg:mt-0 mr-4 transition-all duration-300 gilroy-bold"
               :class="{'text-white':isTop === true}"
               :to="menu.link"
             >{{menu.name}}</nuxt-link>
@@ -56,17 +56,17 @@
               <div v-if="isOpen" @click="isOpen = false" class="absolute w-32 bg-white mt-2 shadow-xl rounded-sm py-2 z-50">
                 <nuxt-link
                   to="/tentang-kami"
-                  class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
+                  class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold tracking-widest"
                 >Visi</nuxt-link>
                 <nuxt-link
                   to="/expertise"
-                  class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold"
+                  class="block bg-white text-black py-2 px-4 text-xxs uppercase font-bold hover:bg-gray-200 gilroy-bold tracking-widest"
                 >Expertise</nuxt-link>
               </div>
             </div>
           </div>
           <nuxt-link
-            class="w-contact-us text-center mt-0 inline-block px-4 py-2 uppercase tracking-widest font-bold verlag"
+            class="w-contact-us lg:text-xxs xl:text-sm text-center mt-0 inline-block px-4 py-4 uppercase tracking-widest font-bold verlag"
             to="/#hubungi-kami"
 			      :class="buttonIsTop"
           >Hubungi Kami</nuxt-link>
@@ -108,8 +108,11 @@
             <li @click="show" class="mb-6">
               <nuxt-link class="text-base text-black font-bold" to="/tentang-kami">Visi</nuxt-link>
             </li>
-            <li @click="show" class="mb-6">
+            <li @click="show" class="mb-10">
               <nuxt-link class="text-base text-black font-bold" to="/expertise">Expertise</nuxt-link>
+            </li>
+            <li @click="show" class="mb-6">
+              <nuxt-link class="text-base text-white px-4 py-2 bg-indigo-500 font-bold" to="/#hubungi-kami">Hubungi Kami</nuxt-link>
             </li>
           </ul>
         </div>

@@ -45,7 +45,7 @@
             </div>
             <img
               class="w-2/3 lg:w-2/3 mt-16 lg:mt-32"
-              src="/footer/partof.svg"
+              src="/footer/tmg-white.svg"
               alt="the maj group"
             />
           </div>

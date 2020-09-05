@@ -1,6 +1,6 @@
 <template>
   <div class="pt-24">
-    <div class="container mx-auto px-2">
+    <div class="container mx-auto px-2 lg:px-10">
       <VueSlickCarousel v-bind="settings" ref="herocarousel">
         <div class="relative focus:outline-none" v-for="(hero, index) in dataHeroes" :key="hero.id">
           <h1
@@ -12,7 +12,7 @@
             :alt="`the maj bekasi ${hero.caption}`"
           />
           <nuxt-link
-            class="inline-block mt-6 bg-orange-500 w-full px-16 py-4 uppercase text-center text-sm text-white lg:hidden z-30 hover:bg-gray-500"
+            class="inline-block mt-6 bg-orange-500 w-full px-16 py-4 uppercase text-center text-sm text-white lg:hidden z-30 hover:bg-indigo-500"
             to="/#hubungi-kami"
           >jadwalkan tur</nuxt-link>
           <div class="hidden lg:block w-4/5 lg:px-8 lx:px-20 mt-content">

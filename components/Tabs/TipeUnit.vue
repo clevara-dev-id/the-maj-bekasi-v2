@@ -206,10 +206,10 @@ export default {
       settingsTwo: {
         dots: false,
         arrows: false,
-        infinite: true,
         focusOnSelect: true,
         speed: 500,
         slidesToShow: 3,
+        center:true,
         slidesToScroll: 1,
       },
     };
@@ -227,6 +227,11 @@ export default {
     activeIndex (n, o) {
       if (n !== o) {
         this.activeData = this.dataUnits[n]
+      }
+      if (this.activeData.gallery.length > 3){
+        this.settingsTwo.slidesToShow = 4
+      }else{
+        this.settingsTwo.slidesToShow = 3
       }
     }
   }
@@ -284,7 +289,7 @@ $inActiveBg: #fbf7f6;
     height: 0.5rem;
     width: calc(100% / 2);
     border-radius: 500px;
-    margin-top: -0.5rem;
+    margin-top: -0.70rem;
   }
 }
 

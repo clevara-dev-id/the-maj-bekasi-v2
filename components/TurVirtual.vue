@@ -25,8 +25,8 @@
             <a target="_blank" :href="modalLink" class="text-base capitalize inline-block text-blue-500 underline hover:no-underline hover:text-indigo-500">
               {{modalLink}}  
             </a>
-            <h5 class="text-base capitalize mt-4">You will be redirected to the url above.</h5>
-            <a target="_blank" :href="modalLink" class="px-8 py-4 bg-indigo-500 text-white hover:bg-orange-500 mt-8 block">continue</a>
+            <h5 class="text-base capitalize mt-4">Anda akan diarahkan menuju halaman di atas.</h5>
+            <a target="_blank" :href="modalLink" class="px-8 py-4 bg-indigo-500 text-white hover:bg-orange-500 mt-8 block">Lihat Tur Virtual</a>
           </div>
         </div>
       </div>

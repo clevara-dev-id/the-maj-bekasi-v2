@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button @click="handleClickShow" :class="buttonActive" class="lg:hidden py-2 px-16 mt-4 inline-block border-2 border-orange-500 text-orange-500 font-bold uppercase text-center hover:bg-orange-500 hover:text-white focus:outline-none">view more</button>
+            <button @click="handleClickShow" :class="buttonActive" class="lg:hidden py-2 px-8 mt-4 inline-block border-2 border-orange-500 text-orange-500 font-bold uppercase text-center hover:bg-orange-500 hover:text-white focus:outline-none text-sm">view more</button>
         </div>
     </div>
 </template>

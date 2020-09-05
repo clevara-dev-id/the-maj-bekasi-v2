@@ -37,8 +37,8 @@
             </div>
           </div>
           <div class="hidden lg:block flex mt-8">
-            <button @click="prev" class="py-2 px-3 bg-orange-500 rounded-full focus:outline-none"><img src="/blog/cevron-left.svg" alt="left icon"></button>
-            <button @click="next" class="py-2 px-3 bg-orange-500 rounded-full focus:outline-none ml-4"><img class="transform rotate-180" src="/blog/cevron-left.svg" alt="left icon"></button>
+            <button @click="prev" class="p-2 bg-orange-500 rounded-full focus:outline-none"><img class="w-2 h-2" src="/blog/cevron-left.svg" alt="left icon"></button>
+            <button @click="next" class="p-2 bg-orange-500 rounded-full focus:outline-none ml-4"><img class="transform rotate-180 w-2 h-2" src="/blog/cevron-left.svg" alt="left icon"></button>
           </div>
         </div>
         <!-- {{ activeBlog }} -->
@@ -110,8 +110,8 @@
       </Tabs>
 
     </div>
-    <Footer :data-socmed="socmed" />
   </div>
+    <Footer :data-socmed="socmed" />
   </div>
 </template>
 
