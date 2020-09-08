@@ -1,7 +1,7 @@
 <template>
   <div class="bg-v-tour">
     <div v-if="modalShow" class="w-full h-full bg-gray-200 bg-opacity-50 fixed inset-0 z-50">
-      <div class="w-full lg:w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
+      <div class="w-full md:w-1/2 mx-auto my-48 bg-white p-4 lg:p-8 rounded-lg shadow-xl">
         <div class="text-center relative">
           <button class="absolute right-0 top-0" @click="modalShow = !modalShow">
             <svg
@@ -20,9 +20,9 @@
               />
             </svg>
           </button>
-          <div class="p-8">
+          <div class="p-2 py-8 lg:p-8">
             <!-- <h1 class="text-heading text-indigo-500 font-bold capitalize">Thank You!</h1> -->
-            <a target="_blank" :href="modalLink" class="text-base capitalize inline-block text-blue-500 underline hover:no-underline hover:text-indigo-500">
+            <a target="_blank" :href="modalLink" class="text-base inline-block text-blue-500 underline hover:no-underline hover:text-indigo-500">
               {{modalLink}}  
             </a>
             <h5 class="text-base capitalize mt-4">Anda akan diarahkan menuju halaman di atas.</h5>
@@ -35,7 +35,7 @@
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full focus:outline-none">
-          <a class="w-full" @click="showModal(tour.link)">
+          <a class="w-full cursor-pointer" @click="showModal(tour.link)">
             <img class="w-full" :src="tour.image" :alt="tour.name" />
           </a>
           <div class="flex items-center justify-between w-3/4 lg:w-1/3 mx-auto">
@@ -89,31 +89,31 @@ export default {
           id: 1,
           name: "Studio A & B",
           link: "https://my.matterport.com/show/?m=QkKWVhwxX8V&brand=0",
-          image: "/vtour/studio-a-b.png",
+          image: "/vtour/Studio.jpg",
         },
         {
           id: 2,
           name: "2 Bedroom",
           link: "https://my.matterport.com/show/?m=8Hq58emEwf6",
-          image: "/vtour/studio-2-br.png",
+          image: "/vtour/2-Bedroom.jpg",
         },
         {
           id: 3,
           name: "Lobby",
           link: "https://poly.google.com/view/3I5SHJ3nUJ0/embed?chrome=min",
-          image: "/vtour/lobby.png",
+          image: "/vtour/Loby.jpg",
         },
         {
           id: 4,
           name: "Pool",
           link: "https://poly.google.com/view/eqDVNcBA-tr/embed?chrome=min",
-          image: "/vtour/pool.png",
+          image: "/vtour/Swiming-Pool.jpg",
         },
         {
           id: 5,
           name: "Sky Garden",
           link: "https://poly.google.com/view/5vqSNgUTff5/embed?chrome=min",
-          image: "/vtour/sky-garden.png",
+          image: "/vtour/Sky-Garden.jpg",
         },
       ],
       settings: {
