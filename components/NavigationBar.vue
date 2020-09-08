@@ -66,7 +66,7 @@
             </div>
           </div>
           <nuxt-link
-            class="w-contact-us lg:text-xxs xl:text-sm text-center mt-0 inline-block px-4 py-4 uppercase tracking-widest font-bold verlag"
+            class="w-contact-us lg:text-xxs xl:text-xxs text-center mt-0 inline-block px-4 py-4 uppercase tracking-widest font-bold verlag"
             to="/#hubungi-kami"
 			      :class="buttonIsTop"
           >Hubungi Kami</nuxt-link>
@@ -108,11 +108,11 @@
             <li @click="show" class="mb-6">
               <nuxt-link class="text-base text-black font-bold" to="/tentang-kami">Visi</nuxt-link>
             </li>
-            <li @click="show" class="mb-10">
+            <li @click="show" class="mb-8">
               <nuxt-link class="text-base text-black font-bold" to="/expertise">Expertise</nuxt-link>
             </li>
             <li @click="show" class="mb-6">
-              <nuxt-link class="text-base text-white px-4 py-2 bg-indigo-500 font-bold" to="/#hubungi-kami">Hubungi Kami</nuxt-link>
+              <nuxt-link class="text-xxs text-white py-3 px-6 bg-indigo-500 verlag uppercase tracking-widest" to="/#hubungi-kami">Hubungi Kami</nuxt-link>
             </li>
           </ul>
         </div>

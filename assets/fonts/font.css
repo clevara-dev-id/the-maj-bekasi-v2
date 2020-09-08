@@ -10,3 +10,7 @@
     font-family: proxima nova;
     src: url('./ProximaNova/ProximaNova-Regular.otf');
   }
+  @font-face {
+    font-family: proxima nova bold;
+    src: url('./ProximaNova/ProximaNova-Bold.otf');
+  }

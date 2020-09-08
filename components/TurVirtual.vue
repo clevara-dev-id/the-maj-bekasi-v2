@@ -93,7 +93,7 @@ export default {
         },
         {
           id: 2,
-          name: "Studio 2 Bedroom",
+          name: "2 Bedroom",
           link: "https://my.matterport.com/show/?m=8Hq58emEwf6",
           image: "/vtour/studio-2-br.png",
         },

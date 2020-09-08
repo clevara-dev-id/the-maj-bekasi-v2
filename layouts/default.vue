@@ -28,4 +28,7 @@ export default {
   button, .verlag{
     font-family: verlag;
   }
+  strong {
+    font-family: proxima nova bold;
+  }
 </style>

@@ -33,12 +33,3 @@ export default {
 	},
 };
 </script>
-<style lang="scss" scoped>
-  p{
-    font-family: proxima-nova;
-    font-weight: bold;
-  }
-  strong{
-    font-weight: bolder;
-  }
-</style>

@@ -68,11 +68,11 @@
             >contact us</nuxt-link>
             <nuxt-link
               class="text-white hover:text-orange-500 block my-2 capitalize"
-              to="/#"
+              to="/capital-amangement"
             >Ancora Capital Management</nuxt-link>
             <nuxt-link
               class="text-white hover:text-orange-500 block my-2 capitalize"
-              to="/#"
+              to="/media-center"
             >Media Center</nuxt-link>
             <nuxt-link
               class="text-white hover:text-orange-500 block my-2 capitalize"

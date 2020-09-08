@@ -1,5 +1,14 @@
 
 export default {
+  router:{
+    extendRoutes(routes, resolve){
+      routes.push({
+        name:'comingsoon',
+        path: '*',
+        component: resolve(__dirname, 'pages/comingsoon.vue')
+      })
+    }
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
