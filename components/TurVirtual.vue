@@ -31,12 +31,17 @@
         </div>
       </div>
     </div>
-    <div id="tur-virtual" class="container mx-auto px-4 lg:px-16 pt-32 py-8 lg:mt-48">
+    <div id="tur-virtual" class="container mx-auto px-4 md:px-8 lg:px-16 pt-32 py-8 lg:mt-48">
       <h1 class="text-2xl font-gray-900 text-center py-8 font-bold capitalize">tur virtual apartemen</h1>
       <VueSlickCarousel ref="vtour" v-bind="settings">
         <div v-for="(tour, index) in vtours" :key="tour.id" class="w-full h-full focus:outline-none">
           <a class="w-full cursor-pointer" @click="showModal(tour.link)">
-            <img class="w-full" :src="tour.image" :alt="tour.name" />
+            <div class="hidden lg:block">
+              <img class="w-full" :src="tour.image" :alt="tour.name" />
+            </div>
+            <div class="block lg:hidden">
+              <img class="w-full" :src="tour.mobileImage" :alt="tour.name" />
+            </div>
           </a>
           <div class="flex items-center justify-between w-3/4 lg:w-1/3 mx-auto">
             <button
@@ -90,30 +95,35 @@ export default {
           name: "Studio A & B",
           link: "https://my.matterport.com/show/?m=QkKWVhwxX8V&brand=0",
           image: "/vtour/Studio.jpg",
+          mobileImage: "/vtour/Studio-mobile.jpg",
         },
         {
           id: 2,
           name: "2 Bedroom",
           link: "https://my.matterport.com/show/?m=8Hq58emEwf6",
           image: "/vtour/2-Bedroom.jpg",
+          mobileImage: "/vtour/2-Bedroom-mobile.jpg",
         },
         {
           id: 3,
           name: "Lobby",
           link: "https://poly.google.com/view/3I5SHJ3nUJ0/embed?chrome=min",
           image: "/vtour/Loby.jpg",
+          mobileImage: "/vtour/Loby-mobile.jpg",
         },
         {
           id: 4,
           name: "Pool",
           link: "https://poly.google.com/view/eqDVNcBA-tr/embed?chrome=min",
           image: "/vtour/Swiming-Pool.jpg",
+          mobileImage: "/vtour/Swiming-Pool-mobile.jpg",
         },
         {
           id: 5,
           name: "Sky Garden",
           link: "https://poly.google.com/view/5vqSNgUTff5/embed?chrome=min",
           image: "/vtour/Sky-Garden.jpg",
+          mobileImage: "/vtour/Sky-Garden-mobile.jpg",
         },
       ],
       settings: {
@@ -127,7 +137,10 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+.slick-slide img {
+  display: unset;
+}
 .bg-v-tour {
   background-color: #e8e8e8;
 }

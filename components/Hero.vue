@@ -1,6 +1,6 @@
 <template>
   <div class="pt-24">
-    <div class="container mx-auto px-2 lg:px-10">
+    <div class="container mx-auto px-2 md:px-8 lg:px-10">
       <VueSlickCarousel v-bind="settings" ref="herocarousel">
         <div class="relative focus:outline-none" v-for="(hero, index) in dataHeroes" :key="hero.id">
           <h1

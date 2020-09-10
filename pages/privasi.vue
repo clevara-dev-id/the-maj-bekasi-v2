@@ -2,7 +2,7 @@
   <div class="pt-24">
 		<h1 class="text-heading font-bold text-center text-indigo-500 capitalize my-24">kebijakan privasi</h1>
 		<div class="container mx-auto px-8">
-			<p class="text-base text-black mb-48" v-html="privacy.text"></p>
+			<div class="text-base text-black mb-48 in-p-4" v-html="privacy.text"></div>
 		</div>
     <Footer :data-socmed="socmed" />
 	</div>
@@ -33,3 +33,17 @@ export default {
 	},
 };
 </script>
+<style lang="scss">
+  .in-p-4{
+    p{
+      margin-top: 1rem;
+    }
+    ul{
+      list-style-type: disc;
+      margin-left: 2rem;
+      li{
+        margin-top: 1rem;
+      }
+    }
+  }
+</style>

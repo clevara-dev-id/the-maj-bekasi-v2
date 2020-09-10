@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-2 lg:px-16 pt-16 lg:pt-32">
+  <div class="container mx-auto px-2 md:px-8 lg:px-16 pt-16 lg:pt-32">
     <h1 class="text-heading font-bold text-indigo-500 capitalize text-center mb-16">update terbaru</h1>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-4">
       <div v-for="blog in dataBlogs.slice(0,3)" :key="blog.id">

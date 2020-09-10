@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- MODAL COMPONENT -->
     <div v-if="isOpen" class="w-full h-full bg-gray-200 bg-opacity-50 fixed inset-0 z-50">
       <div class="w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
         <div class="text-center relative">
@@ -33,9 +34,10 @@
       </div>
     </div>
     <button v-if="isOpen" @click="isOpen = false" class="fixed inset-0 w-full h-full z-40"></button>
+    <!-- FOOTER COMPONENT -->
     <div class="bg-black">
       <div class="container mx-auto px-8 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-20 lg:gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-20 lg:gap-4">
           <div class="lg:col-span-1">
             <img class="w-1/2" src="/logo-bw.svg" alt="the maj bekasi logo inverse" />
             <div class="flex justify-start my-8">
@@ -83,10 +85,10 @@
               to="/terms-and-condition"
             >terms and conditions</nuxt-link>
           </div>
-          <div class="text-white lg:col-span-2">
-            <h5 class="text-sm text-white uppercase font-bold mb-8">Subscribe for the MAJ GROUP Exclusive news & Offers</h5>
+          <div class="text-white md:col-span-3 lg:col-span-2">
+            <h5 class="text-sm text-white uppercase font-bold mb-8 tracking-widest">Subscribe for the MAJ GROUP Exclusive news & Offers</h5>
             <div class="flex flex-wrap -mx-3 mb-2">
-              <div class="w-full lg:w-1/3 px-3 mb-6">
+              <div class="w-full md:w-1/5 lg:w-1/3 px-3 mb-6">
                 <div class="relative">
                   <select
                     :class="{'border-red-600': (title === false)}"
@@ -94,7 +96,7 @@
                     ref="footerTitle"
                     required
                   >
-                    <option value>Gelar</option>
+                    <option value>Title</option>
                     <option value="Bapak">Bapak</option>
                     <option value="Ibu">Ibu</option>
                   </select>
@@ -117,7 +119,7 @@
                   >Please fill out this field.</p>
                 </div>
               </div>
-              <div class="w-full lg:w-2/3 px-3 mb-6">
+              <div class="w-full md:w-2/5 lg:w-2/3 px-3 mb-6">
                 <input
                   :class="{'border-red-600': (name === false)}"
                   class="appearance-none block w-full bg-white text-gray-700 border border-white rounded-sm py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -131,8 +133,24 @@
                   class="text-red-500 text-xs italic"
                 >Please fill out this field.</p>
               </div>
+              <!-- TABLET EMAIL -->
+              <div class="w-2/5 px-3 mb-6 hidden md:block lg:hidden">
+                <input
+                  :class="{'border-red-600': (email === false)}"
+                  class="appearance-none block w-full bg-white text-gray-700 border border-white rounded-sm py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  ref="footerEmail"
+                  type="email"
+                  required
+                  placeholder="Email"
+                />
+                <p
+                  v-if="email === false"
+                  class="text-red-500 text-xs italic"
+                >Please enter a valid email address.</p>
+              </div>
             </div>
-            <div class="w-full mb-6">
+            <!-- SMALL AND LARGE EMAIL -->
+            <div class="w-full mb-6 block md:hidden lg:block">
               <input
                 :class="{'border-red-600': (email === false)}"
                 class="appearance-none block w-full bg-white text-gray-700 border border-white rounded-sm py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -146,18 +164,20 @@
                 class="text-red-500 text-xs italic"
               >Please enter a valid email address.</p>
             </div>
-            <button
-              @click="handleClick"
-              type="submit"
-              class="py-2 px-8 text-black text-sm tracking-widest bg-white uppercase font-bold hover:bg-orange-500 hover:text-white"
-            >subscribe</button>
-            <p class="mt-4 text-white proxima-nova text-xxs">
-              By entering your details you consent to be contacted via email by the MAJ group with offers and updates. To opt out, use the unsubscribe link or email
-              <a
-                class="text-white hover:text-orange-500"
-                href="mailto:unsubscribe@themajgroup.com"
-              >unsubscribe@themajgroup.com</a>.
-            </p>
+            <div class="block md:flex lg:block">
+              <button
+                @click="handleClick"
+                type="submit"
+                class="py-3 px-8 text-xxs text-black tracking-widest bg-white uppercase font-bold hover:bg-orange-500 hover:text-white"
+              >subscribe</button>
+              <p class="mt-4 md:mt-1 lg:mt-4 ml-0 md:ml-16 lg:ml-0 text-white proxima-nova text-xxs">
+                By entering your details you consent to be contacted via email by the MAJ group with offers and updates. To opt out, use the unsubscribe link or email
+                <a
+                  class="text-white hover:text-orange-500"
+                  href="mailto:unsubscribe@themajgroup.com"
+                >unsubscribe@themajgroup.com</a>.
+              </p>
+            </div>
           </div>
         </div>
       </div>

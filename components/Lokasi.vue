@@ -1,5 +1,5 @@
 <template>
-    <div id="lokasi" class="container mx-auto px-2 lg:px-16 pt-24 lg:pt-40">
+    <div id="lokasi" class="container mx-auto px-2 md:px-8 lg:px-16 pt-24 lg:pt-40">
         <Heading class="w-11/12 lg:w-5/12" data-title="lokasi" data-class="whitespace-pre lg:whitespace-normal" data-caption="Kenyamanan 
 dan kemudahan 
 menantimu di bekasi" />

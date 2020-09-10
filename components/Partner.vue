@@ -1,19 +1,9 @@
 <template>
   <div>
-    <div class="container mx-auto px-2 lg:px-16 mt-0 lg:mt-48 lg:hidden">
-      <div class="flex justify-center flex-wrap">
-        <div v-for="partner in dataPartners" :key="partner.id" class="p-2 w-1/3">
-          <a :href="partner.link">
-            <img
-              class="grayscale focus:outline-none"
-              :src="$store.state.storage_url+partner.image"
-              :alt="partner.name"
-            />
-          </a>
-        </div>
-      </div>
+    <div class="container mx-auto px-2 lg:px-16 mt-0 lg:mt-48 md:hidden">
+      <img src="/partner/partner.svg" alt="partner logo">
     </div>
-    <div class="hidden lg:block">
+    <div class="hidden md:block">
 			<VueSlickCarousel v-bind="settings">
 				<div v-for="partner in dataPartners" :key="partner.id">
 					<a :href="partner.link">

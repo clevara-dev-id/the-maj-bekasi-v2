@@ -39,7 +39,7 @@
 		></button>
     <div
       id="hubungi-kami"
-      class="container lg:w-1/2 lg:py-8 lg:mb-4 mx-auto px-2 lg:px-16 my-20 lg:mt-24 lg:bg-white"
+      class="container lg:w-1/2 lg:py-8 lg:mb-4 mx-auto px-2 md:px-8 lg:px-16 my-20 lg:mt-24 lg:bg-white"
     >
       <h1 class="text-center font-bold text-heading text-indigo-500 my-8 capitalize">Hubungi Kami</h1>
       <p
