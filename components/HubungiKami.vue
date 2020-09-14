@@ -1,7 +1,7 @@
 <template>
   <div>
 		<div v-if="isOpen" class="w-full h-full bg-gray-200 bg-opacity-50 fixed inset-0 z-50">
-			<div class="w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
+			<div class="w-full md:w-1/2 mx-auto my-48 bg-white p-8 rounded-lg shadow-xl">
 				<div class="text-center relative">
 					<button class="absolute right-0 top-0" @click="show">
             <svg
@@ -21,13 +21,13 @@
             </svg>
           </button>
 					<div class="p-8" v-if="error === false">
-						<h1 class="text-heading text-indigo-500 font-bold capitalize">Thank You!</h1>
-						<h5 class="text-base capitalize">We'll get back to you as soon as possible</h5>
+						<h1 class="text-heading text-indigo-500 font-bold capitalize">Terima Kasih!</h1>
+						<h5 class="text-base capitalize">Kami akan menghubungi anda kembali secepatnya.</h5>
 					</div>
 					<div class="p-8" v-else>
 						<img class="w-1/3 mx-auto" src="/sad.svg" alt="sad icon">
 						<h1 class="text-heading text-indigo-500 font-bold capitalize">Oh no!</h1>
-						<h5 class="text-base capitalize">Something goes wrong, please try again later.</h5>
+						<h5 class="text-base capitalize">Terjadi Kesalahan, mohon coba lagi nanti.</h5>
 					</div>
 				</div>
 			</div>
