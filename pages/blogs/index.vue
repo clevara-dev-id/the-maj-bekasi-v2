@@ -126,6 +126,7 @@ const components = {
   Tab: () => import('@/components/Tabs/Tab.vue'),
 }
 export default {
+  name: 'blog',
   head() {
     return {
       title: "The MAJ Residences Bekasi - Blogs",
@@ -138,7 +139,6 @@ export default {
       ],
     };
   },
-  name: 'blog',
   data () {
     return {
       currentIndex: null,

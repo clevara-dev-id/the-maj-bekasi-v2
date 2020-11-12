@@ -118,7 +118,19 @@ export default {
 		return {
 			isShow:false
 		}
-	},
+  },
+  head() {
+    return {
+      title: "The MAJ Residences Bekasi - Blogs",
+      meta: [
+        {
+          hid: "Blogs of The MAJ Residences Bekasi.",
+          name: "Blogs of The MAJ Residences Bekasi.",
+          content: "Blogs of The MAJ Residences Bekasi.",
+        },
+      ],
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
